@@ -1,0 +1,467 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.cdqf.dire">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <application
+        android:name="com.cdqf.dire_hear.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="794424e49c63a1bf94907e595fec2382"></meta-data>
+
+        <!-- 定位需要的服务 使用2.0的定位需要加上这个 -->
+        <service android:name="com.amap.api.location.APSService" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remoe" />
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="rnDcWy8Sr4TYSC3HPWGlGnD3LwemHZLe" />
+
+        <meta-data
+            android:name="TencentMapSDK"
+            android:value="M4BBZ-LM764-5T7US-DF5BS-UOVQK-S7BPH" />
+
+        <!-- QQ -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="101570424" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 微信 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wx04b11fc5b93db89d" />
+            </intent-filter>
+        </activity>
+
+        <!-- 微信支付 -->
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wxa4daa65cffb848ef" />
+            </intent-filter>
+        </activity>
+
+        <!-- 支付宝 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+
+        <!-- 主activity -->
+        <activity
+            android:name="com.cdqf.dire_activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!---->
+        <activity
+            android:name="com.cdqf.dire_activity.GuideActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--登录-->
+        <activity
+            android:name="com.cdqf.dire_activity.LoginActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--注册第一步-->
+        <activity
+            android:name="com.cdqf.dire_activity.RegisteredOneActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--注册第二步-->
+        <activity
+            android:name="com.cdqf.dire_activity.RegisteredTwoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--用户信息-->
+        <activity
+            android:name="com.cdqf.dire_activity.UserActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--会馆-->
+        <activity
+            android:name="com.cdqf.dire_activity.VenuesActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--昵称-->
+        <activity
+            android:name="com.cdqf.dire_activity.NickNameActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--姓名-->
+        <activity
+            android:name="com.cdqf.dire_activity.NameActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--电子邮箱-->
+        <activity
+            android:name="com.cdqf.dire_activity.EmailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--手机第一步-->
+        <activity
+            android:name="com.cdqf.dire_activity.PhoneChangeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--手机第二○步-->
+        <activity
+            android:name="com.cdqf.dire_activity.PhoneChangeNextActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--景点详情-->
+        <activity
+            android:name="com.cdqf.dire_activity.DetailsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--路线-->
+        <activity
+            android:name="com.cdqf.dire_activity.RouteActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--用户协议-->
+        <activity
+            android:name="com.cdqf.dire_activity.AgreementActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--探索卡-->
+        <activity
+            android:name="com.cdqf.dire_activity.CardOneActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--情报卡-->
+        <activity
+            android:name="com.cdqf.dire_activity.CardTwoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--答题卡-->
+        <activity
+            android:name="com.cdqf.dire_activity.CardThreeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--奖章-->
+        <activity
+            android:name="com.cdqf.dire_activity.RewardActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+
+        <!--忘记密码之发送验证-->
+        <activity
+            android:name="com.cdqf.dire_activity.ForPasswordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--忘记密码之新密码-->
+        <activity
+            android:name="com.cdqf.dire_activity.PassWordNewActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--个人中心-->
+        <activity
+            android:name="com.cdqf.dire_activity.MyActivity"
+            android:launchMode="singleTask" />
+
+        <!--个人信息-->
+        <activity
+            android:name="com.cdqf.dire_activity.PersonalActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--我的线路-->
+        <activity
+            android:name="com.cdqf.dire_activity.LineActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--赛事活动-->
+        <activity
+            android:name="com.cdqf.dire_activity.CementActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--赛事活动详情-->
+        <activity
+            android:name="com.cdqf.dire_activity.CementContextActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--我的订单-->
+        <activity
+            android:name="com.cdqf.dire_activity.MyOrderActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--我的订单-->
+        <activity
+            android:name="com.cdqf.dire_activity.OrderDetailsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--搜索-->
+        <activity
+            android:name="com.cdqf.dire_activity.SearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--密码修改-->
+        <activity
+            android:name="com.cdqf.dire_activity.ModifyPassWordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--我的队伍-->
+        <activity
+            android:name="com.cdqf.dire_activity.TeamActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--签到-->
+        <activity
+            android:name="com.cdqf.dire_activity.SignActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--添加队员-->
+        <activity
+            android:name="com.cdqf.dire_activity.PlayersActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--关于我们-->
+        <activity
+            android:name="com.cdqf.dire_activity.AboutActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--欢迎页-->
+        <activity
+            android:name="com.cdqf.dire_activity.WelcomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--内容-->
+        <activity
+            android:name="com.cdqf.dire_activity.PointActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--活动详情-->
+        <activity
+            android:name="com.cdqf.dire_activity.DetailsGameActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--答题-->
+        <activity
+            android:name="com.cdqf.dire_activity.AnswerActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!-- 依次穿越 -->
+        <activity
+            android:name="com.cdqf.dire_activity.ThroughActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!-- 放大图 -->
+        <activity
+            android:name="com.cdqf.dire_activity.BigActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!-- 发现活动 -->
+        <activity
+            android:name="com.cdqf.dire_activity.PeriodActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--发现景区-->
+        <activity
+            android:name="com.cdqf.dire_activity.ScenicActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--勋章-->
+        <activity
+            android:name="com.cdqf.dire_activity.MedalActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--勋章-->
+        <activity
+            android:name="com.cdqf.dire_activity.MentActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <service
+            android:name="com.cdqf.dire_ble.BleService"
+            android:permission="true" />
+
+        <receiver android:name="com.cdqf.dire_ble.BleBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.cdqf.dire.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+</manifest>

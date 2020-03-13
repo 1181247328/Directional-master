@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/login_background"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl_phonechange_return"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="wrap_content"
+                android:background="@drawable/component_click"
+                android:clickable="true"
+                android:paddingTop="@dimen/dp_8"
+                android:paddingBottom="@dimen/dp_8">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_20"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/plantscience_return" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical|center"
+                android:paddingTop="@dimen/dp_8"
+                android:paddingBottom="@dimen/dp_8"
+                android:text="换绑手机"
+                android:textColor="@color/cement_one"
+                android:textSize="@dimen/sp_14" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_15"
+            android:paddingBottom="@dimen/dp_15"
+            android:text="请输入你需要绑定的新手机号"
+            android:textColor="@color/cement_one"
+            android:textSize="@dimen/sp_14" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_phonechange_region"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/component_click"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:paddingLeft="@dimen/dp_15"
+                    android:paddingTop="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_15"
+                    android:text="国家和地区"
+                    android:textColor="@color/cement_one"
+                    android:textSize="@dimen/sp_14" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="@dimen/dp_10">
+
+                    <TextView
+                        android:id="@+id/tv_phonechange_region"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dp_8"
+                        android:background="@android:color/transparent"
+                        android:text="中国大陆 86"
+                        android:textColor="@color/cement_one"
+                        android:textSize="@dimen/sp_14" />
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_18"
+                        android:layout_height="@dimen/dp_17"
+                        android:background="@android:color/transparent"
+                        android:src="@mipmap/details_return" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/login_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:paddingLeft="@dimen/dp_15"
+                    android:paddingTop="@dimen/dp_15"
+                    android:paddingBottom="@dimen/dp_15"
+                    android:text="新手机号"
+                    android:textColor="@color/cement_one"
+                    android:textSize="@dimen/sp_14" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical|right"
+                    android:paddingLeft="@dimen/dp_30"
+                    android:paddingRight="@dimen/dp_10">
+
+                    <com.xw.repo.XEditText
+                        android:id="@+id/xet_phonechange_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_40"
+                        android:layout_weight="3"
+                        android:background="@color/white"
+                        android:gravity="center_vertical|left"
+                        android:hint="请输入手机号"
+                        android:lines="1"
+                        android:paddingLeft="@dimen/dp_5"
+                        android:paddingRight="@dimen/dp_10"
+                        android:textColor="@color/plant_address"
+                        android:textColorHint="@color/forpassword_one"
+                        android:textSize="@dimen/sp_14" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_phonechange_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:background="@color/main_team_back"
+            android:gravity="center_vertical|center"
+            android:padding="@dimen/dp_10"
+            android:text="下一步"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

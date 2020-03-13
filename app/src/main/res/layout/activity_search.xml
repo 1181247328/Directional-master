@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/back_my"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/back_my">
+
+            <RelativeLayout
+                android:id="@+id/rl_search_return"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_42"
+                android:layout_centerVertical="true"
+                android:background="@drawable/login_reture"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_18"
+                    android:layout_height="@dimen/dp_17"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/plantscience_return" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_search_x"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_42"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/search_click"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingLeft="@dimen/dp_12"
+                android:paddingRight="@dimen/dp_12"
+                android:text="搜索"
+                android:textColor="@color/route_determine"
+                android:textSize="@dimen/sp_14" />
+
+            <com.gcssloop.widget.RCRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/tv_search_x"
+                android:layout_toRightOf="@id/rl_search_return"
+                android:background="@color/white"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:clip_background="true"
+                app:round_corner="@dimen/dp_40">
+
+                <com.xw.repo.XEditText
+                    android:id="@+id/xet_search_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_35"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical|left"
+                    android:hint="请输入信息"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/dp_10"
+                    android:paddingRight="@dimen/dp_10"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/personal_item_name"
+                    android:textCursorDrawable="@drawable/nickname_cursor"
+                    android:textSize="@dimen/sp_14" />
+
+            </com.gcssloop.widget.RCRelativeLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/login_background" />
+
+        <LinearLayout
+            android:id="@+id/ll_search_there"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center_vertical|center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_60"
+                android:scaleType="fitXY"
+                android:src="@mipmap/allorder_no" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:gravity="center|clip_vertical"
+                android:text="暂无~"
+                android:textColor="@color/cement_one"
+                android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <com.jingchen.pulltorefresh.PullToRefreshLayout
+            android:id="@+id/ptrl_search_pull"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/back_my"
+            android:visibility="gone">
+
+            <com.jingchen.pulltorefresh.PullableListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:divider="@color/back_my"
+                android:dividerHeight="@dimen/dp_3"
+                android:scrollbars="none" />
+
+        </com.jingchen.pulltorefresh.PullToRefreshLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

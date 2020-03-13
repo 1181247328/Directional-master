@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fitsSystemWindows="true">
+
+    <com.cdqf.dire_view.ScrollInterceptScrollView
+        android:id="@+id/sv_pldetails_sc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/login_background"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/login_background"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_230">
+
+                <com.tencent.tencentmap.mapsdk.map.MapView
+                    android:id="@+id/mv_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_pldetails_return"
+                    android:layout_width="@dimen/dp_70"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dp_10"
+                    android:paddingTop="@dimen/dp_15">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_25"
+                        android:layout_height="@dimen/dp_25"
+                        android:src="@mipmap/pldetails_return" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_pldetails_route"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingTop="@dimen/dp_15"
+                    android:text="纪念碑园"
+                    android:textColor="@color/planning_item_two"
+                    android:textSize="@dimen/sp_14" />
+
+                <ImageView
+                    android:layout_width="@dimen/dp_25"
+                    android:layout_height="@dimen/dp_25"
+                    android:layout_marginLeft="@dimen/dp_25"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:src="@mipmap/pldetails_quotes" />
+
+                <me.codeboy.android.aligntextview.AlignTextView
+                    android:id="@+id/atv_pldetails_route"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_25"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:lineSpacingExtra="@dimen/dp_3"
+                    android:paddingBottom="@dimen/dp_12"
+
+                    android:text="英名廊-烈士群雕-突破湘江纪念碑"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/login_background">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_30"
+                    android:background="@color/white" />
+
+                <com.gcssloop.widget.RCRelativeLayout
+                    android:layout_width="@dimen/dp_70"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:color/transparent"
+                    app:round_as_circle="true">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/login_background" />
+
+                </com.gcssloop.widget.RCRelativeLayout>
+
+                <com.gcssloop.widget.RCRelativeLayout
+                    android:layout_width="@dimen/dp_50"
+                    android:layout_height="@dimen/dp_50"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:background="@color/login_background"
+                    app:round_as_circle="true">
+
+                    <TextView
+                        android:id="@+id/tv_pldetails_planebak"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/planning_item_two" />
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:layout_centerInParent="true"
+                        android:src="@mipmap/pldetails_plane" />
+
+
+                </com.gcssloop.widget.RCRelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_pldetails_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/login_background"
+                    android:scrollbars="none" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </com.cdqf.dire_view.ScrollInterceptScrollView>
+
+</LinearLayout>

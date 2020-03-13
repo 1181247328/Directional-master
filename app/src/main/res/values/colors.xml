@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!--通用色-->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="general_one">#DDDDDD</color>
+    <color name="back_my">#F5F5F5</color>
+
+    <!--所有点击通用效果-->
+    <color name="selected_all">#DDDDDD</color>
+    <color name="in">#7fffffff</color>
+
+    <!--MainActivity颜色-->
+    <color name="main_team_back">#d92122</color>
+
+    <!--PersonalAdapter颜色-->
+    <color name="personal_item_name">#535353</color>
+
+    <!--LoginActivity颜色-->
+    <color name="login_background">#F5F5F5</color>
+
+    <!--UserAdapter中item_user-->
+    <color name="context">#999999</color>
+
+    <!--VenuesActivity-->
+    <color name="planning_item_two">#F9B933</color>
+
+    <!--RouteDilogFragment-->
+    <color name="route_determine">#0099FF</color>
+
+    <color name="strategy_item_published">#d92122</color>
+
+    <color name="plant_address">#797979</color>
+
+    <color name="card_one">#DD3421</color>
+
+    <color name="card_three_font">#1A1A1A</color>
+
+    <color name="card_three_shape">#F8F6F7</color>
+
+    <color name="about_line">#444444</color>
+
+    <color name="card_three">#E25140</color>
+
+    <color name="cart_three_one">#993300</color>
+
+    <color name="cement_one">#474747</color>
+
+    <color name="cement_context_one">#00CC33</color>
+
+    <color name="cement_context_two">#555555</color>
+
+    <color name="forpassword_one">#CAC9CA</color>
+
+    <color name="name_one">#747272</color>
+
+    <color name="name_two">#8B8B8B</color>
+
+    <color name="orderdetails_one">#27272A</color>
+
+    <color name="orderdetails_two">#F23030</color>
+
+    <color name="orderdetails_three">#7E7E7E</color>
+
+    <color name="photo_one">#49A2F0</color>
+
+    <color name="playters_one">#AAAAAA</color>
+
+    <color name="reward_one">#7A3339</color>
+
+    <color name="pay_one">#EE4E55</color>
+
+    <color name="sign_one">#959595</color>
+
+    <color name="order_item_one">#232326</color>
+
+    <color name="head_one">#A0A0A0</color>
+
+    <color name="head_two">#525252</color>
+
+    <color name="cement_item_one">#ec671f</color>
+
+    <color name="cement_item_two">#99ffffff</color>
+
+    <color name="line">#f3f3f3</color>
+
+</resources>

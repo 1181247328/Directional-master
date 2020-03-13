@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_reward_directional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:background="@drawable/line_reward"
+            android:clickable="true"
+            android:gravity="left"
+            android:paddingTop="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_10"
+            android:text="查看勋章"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/tv_reward_directional"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/ll_cardone_layout_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="完成比赛"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_reward_return"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    android:background="@drawable/card_three_return"
+                    android:paddingLeft="@dimen/dp_10">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_18"
+                        android:layout_height="@dimen/dp_17"
+                        android:layout_centerVertical="true"
+                        android:background="@android:color/transparent"
+                        android:src="@mipmap/reward_return" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_reward_share"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/card_three_return">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_18"
+                        android:layout_height="@dimen/dp_17"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:background="@android:color/transparent"
+                        android:src="@mipmap/reward_share" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/back_my" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ll_cardone_layout_two"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:background="@drawable/card_three_shape"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/ll_reward_context_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_reward_context_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_70"
+                            android:background="@android:color/transparent"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/reward_one" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_30"
+                            android:background="@android:color/transparent"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/reward_two"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_reward_context_three"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_70"
+                            android:background="@android:color/transparent"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/reward_three" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@id/ll_reward_context_three"
+                        android:layout_below="@id/ll_reward_context_two"
+                        android:background="@mipmap/rewqrd_bak"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_reward_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:paddingLeft="@dimen/dp_30"
+                            android:paddingRight="@dimen/dp_30"
+                            android:paddingBottom="@dimen/dp_8"
+                            android:textColor="@color/reward_one"
+                            android:textSize="@dimen/sp_16"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0_5"
+                            android:layout_marginLeft="@dimen/dp_25"
+                            android:layout_marginRight="@dimen/dp_25"
+                            android:background="@color/reward_one" />
+
+                        <TextView
+                            android:id="@+id/tv_reward_captain"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:paddingLeft="@dimen/dp_30"
+                            android:text="枫叶秀"
+                            android:paddingTop="@dimen/dp_12"
+                            android:paddingRight="@dimen/dp_30"
+                            android:textColor="@color/reward_one"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:id="@+id/tv_reward_players"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:paddingLeft="@dimen/dp_30"
+                            android:paddingTop="@dimen/dp_12"
+                            android:paddingRight="@dimen/dp_30"
+                            android:textColor="@color/reward_one"
+                            android:textSize="@dimen/sp_14"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_reward_context"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp_30"
+                            android:layout_marginTop="@dimen/dp_12"
+                            android:layout_marginRight="@dimen/dp_30"
+                            android:background="@android:color/transparent"
+                            android:lineSpacingExtra="@dimen/dp_3"
+                            android:gravity="center"
+                            android:textColor="@color/reward_one"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:paddingLeft="@dimen/dp_30"
+                            android:paddingTop="@dimen/dp_25"
+                            android:paddingRight="@dimen/dp_30"
+                            android:paddingBottom="@dimen/dp_5"
+                            android:text="特颁此证  以资纪念"
+                            android:textColor="@color/reward_one"
+                            android:textSize="@dimen/sp_15"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
