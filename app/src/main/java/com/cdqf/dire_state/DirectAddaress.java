@@ -6,7 +6,10 @@ public class DirectAddaress {
 //    public static final String ADDRESS = "http://192.168.31.9";
 
     //线上
-    public static final String ADDRESS = "https://jx.baodi520.com";
+//    public static final String ADDRESS = "https://jx.baodi520.com";
+
+    //线上
+    public static final String ADDRESS = "http://jx.quanyubao.cn";
 
     //会馆列表
     public static final String SITE = ADDRESS + "/api/v1/Site/getSite";
