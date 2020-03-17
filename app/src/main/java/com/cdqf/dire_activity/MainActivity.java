@@ -71,6 +71,7 @@ import com.cdqf.dire_find.BleFind;
 import com.cdqf.dire_find.BleOneFind;
 import com.cdqf.dire_find.ExitFind;
 import com.cdqf.dire_find.MainLoginFind;
+import com.cdqf.dire_floatball.FloatService;
 import com.cdqf.dire_state.ACache;
 import com.cdqf.dire_state.BaseActivity;
 import com.cdqf.dire_state.DireState;
@@ -234,6 +235,9 @@ public class MainActivity extends BaseActivity {
 
     private String city = "桂林市";
 
+    private int resumed;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -284,6 +288,7 @@ public class MainActivity extends BaseActivity {
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.ACCESS_FINE_LOCATION,
                         Manifest.permission.CALL_PHONE,
+                        Manifest.permission.SYSTEM_ALERT_WINDOW,
                 },
                 1);
 
@@ -356,17 +361,21 @@ public class MainActivity extends BaseActivity {
                 Gravity.LEFT);
         /***蓝牙***/
         isBle();
-        if (direState.getWelcome() == 0) {
-            initIntent(WelcomeActivity.class);
-            direState.setWelcome(1);
-        } else if (direState.getWelcome() == 1) {
-            //TODO
-        } else {
-            //TODO
-        }
+//        if (direState.getWelcome() == 0) {
+//            initIntent(WelcomeActivity.class);
+//            direState.setWelcome(1);
+//        } else if (direState.getWelcome() == 1) {
+//            //TODO
+//        } else {
+//            //TODO
+//        }
         uiSettings.setZoomControlsEnabled(false);
         initLocationStyle();
         distanceQuery();
+
+        Intent intent = new Intent(MainActivity.this, FloatService.class);
+        //启动FloatViewService
+        startService(intent);
     }
 
     //定位蓝点
@@ -752,6 +761,11 @@ public class MainActivity extends BaseActivity {
         finish();
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+    }
+
 
     @Override
     protected void onStart() {
@@ -787,10 +801,15 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        // 销毁悬浮窗
+        Intent intent = new Intent(MainActivity.this, FloatService.class);
+        //终止FloatViewService
+        stopService(intent);
         super.onDestroy();
         Log.e(TAG, "---销毁---");
         eventBus.unregister(this);
         mMapView.onDestroy();
+
     }
 
     /**
