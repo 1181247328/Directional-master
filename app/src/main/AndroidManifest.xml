@@ -444,6 +444,14 @@
 
         </activity>
 
+        <!--景区详情-->
+        <activity
+            android:name="com.cdqf.dire_activity.PositionActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
         <service
             android:name="com.cdqf.dire_ble.BleService"
             android:permission="true" />

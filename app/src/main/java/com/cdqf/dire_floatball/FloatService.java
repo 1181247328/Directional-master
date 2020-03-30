@@ -15,7 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cdqf.dire.R;
+import com.cdqf.dire_activity.PositionActivity;
 import com.cdqf.dire_state.DireState;
+
+import de.greenrobot.event.EventBus;
 
 public class FloatService extends Service {
     private static final String TAG = "FloatViewService";
@@ -30,6 +33,7 @@ public class FloatService extends Service {
 
     private TextView mFloatView;
 
+    private EventBus eventBus = EventBus.getDefault();
 
     //屏幕宽度
     private int width = 0;
@@ -38,6 +42,10 @@ public class FloatService extends Service {
     public void onCreate() {
         super.onCreate();
         Log.i(TAG, "onCreate");
+        if (!eventBus.isRegistered(this)) {
+            eventBus.register(this);
+        }
+
         width = direState.getDisPlyWidth(getApplicationContext());
         createFloatView();
     }
@@ -64,7 +72,7 @@ public class FloatService extends Service {
         wmParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
         wmParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
-        LayoutInflater inflater = LayoutInflater.from(getApplication());
+        final LayoutInflater inflater = LayoutInflater.from(getApplication());
         //获取浮动窗口视图所在布局
         mFloatLayout = inflater.inflate(R.layout.float_winds, null);
         //添加mFloatLayout
@@ -123,6 +131,8 @@ public class FloatService extends Service {
             @Override
             public void onClick(View v) {
                 Toast.makeText(FloatService.this, "一百块都不给我！", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(FloatService.this, PositionActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -140,5 +150,26 @@ public class FloatService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    /**
+     * 打开浮球
+     *
+     * @param o
+     */
+    public void onEventMainThread(OpenFind o) {
+        createFloatView();
+    }
+
+    /**
+     * 关闭浮球
+     *
+     * @param c
+     */
+    public void onEventMainThread(CloseFind c) {
+        if (mFloatLayout != null) {
+            //移除悬浮窗口
+            mWindowManager.removeView(mFloatLayout);
+        }
     }
 }
