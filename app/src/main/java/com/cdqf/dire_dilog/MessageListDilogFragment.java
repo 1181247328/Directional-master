@@ -11,10 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ListView;
 
 import com.cdqf.dire.R;
+import com.cdqf.dire_dilgadapter.MessageListAdapter;
 import com.cdqf.dire_state.DireState;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
 
@@ -31,28 +34,12 @@ public class MessageListDilogFragment extends DialogFragment {
 
     private EventBus eventBus = EventBus.getDefault();
 
-    private int pay = 0;
+    @BindView(R.id.lv_message_item_list)
+    public ListView lvMessageItemList = null;
 
-    private int payPosition = 0;
+    private MessageListAdapter messageListAdapter = null;
 
-    private int type = 0;
-
-    private double price = 0;
-
-    //0=立即购买1=全部支付2=待付款
-    public void initPayPrice(int type, double price) {
-        this.type = type;
-        this.price = price;
-    }
-
-    public void initPay(int type, double position) {
-        this.type = type;
-    }
-
-    public void initPayPricePosition(int type, double price, int position) {
-        this.type = type;
-        this.price = price;
-        this.payPosition = position;
+    public void initPay() {
     }
 
     @Nullable
@@ -96,7 +83,8 @@ public class MessageListDilogFragment extends DialogFragment {
      * 注册监听器
      */
     private void initListener() {
-
+        messageListAdapter = new MessageListAdapter(getContext());
+        lvMessageItemList.setAdapter(messageListAdapter);
     }
 
     /**

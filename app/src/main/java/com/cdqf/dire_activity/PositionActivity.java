@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.cdqf.dire.R;
+import com.cdqf.dire_dilog.MessageListDilogFragment;
 import com.cdqf.dire_find.ExitFind;
 import com.cdqf.dire_state.BaseActivity;
 import com.cdqf.dire_state.DireState;
@@ -153,7 +154,8 @@ public class PositionActivity extends BaseActivity {
         switch (v.getId()) {
             //其它
             case R.id.rl_position_message:
-
+                MessageListDilogFragment messageListDilogFragment = new MessageListDilogFragment();
+                messageListDilogFragment.show(getSupportFragmentManager(), "其它");
                 break;
         }
     }

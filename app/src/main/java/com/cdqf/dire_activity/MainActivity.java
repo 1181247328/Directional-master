@@ -237,7 +237,6 @@ public class MainActivity extends BaseActivity {
 
     private int resumed;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
