@@ -1,9 +1,13 @@
 package com.cdqf.dire_floatball;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Service;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.Gravity;
@@ -16,12 +20,18 @@ import android.widget.Toast;
 
 import com.cdqf.dire.R;
 import com.cdqf.dire_activity.PositionActivity;
+import com.cdqf.dire_ble.BleService;
+import com.cdqf.dire_ble.ParseUUID;
+import com.cdqf.dire_find.FloatBleFind;
 import com.cdqf.dire_state.DireState;
+
+import java.util.List;
+import java.util.UUID;
 
 import de.greenrobot.event.EventBus;
 
 public class FloatService extends Service {
-    private static final String TAG = "FloatViewService";
+    private static final String TAG = "FloatService";
 
     private DireState direState = DireState.getDireState();
 
@@ -37,6 +47,12 @@ public class FloatService extends Service {
 
     //屏幕宽度
     private int width = 0;
+
+    //蓝牙适配器
+    private BluetoothAdapter mBluetoothAdapter = null;
+
+    //扫描
+    private BluetoothAdapter.LeScanCallback blLeScanCallback = null;
 
     @Override
     public void onCreate() {
@@ -150,6 +166,46 @@ public class FloatService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    /**
+     * 开始扫描蓝牙
+     */
+    public void onEventMainThread(FloatBleFind o) {
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        checkBluetooth();
+    }
+
+    /**
+     * 检查蓝牙状态,包括版本的判断以及是否符合蓝牙连接条件
+     */
+    @SuppressLint("MissingPermission")
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void checkBluetooth() {
+        //判断机型版本是否符合连接条件true = 不符合
+        Boolean isLowVersionSDK = Build.VERSION.SDK_INT < 19;
+        if (isLowVersionSDK) {
+            Log.e(TAG, "---当前机型版本true---" + Build.VERSION.SDK_INT);
+            return;
+        } else {
+            Log.e(TAG, "---当前机型版本false---" + Build.VERSION.SDK_INT);
+            blLeScanCallback = new BluetoothAdapter.LeScanCallback() {
+                @Override
+                public void onLeScan(BluetoothDevice device, int rssi, byte[] scanRecord) {
+                    List<UUID> uuidList = ParseUUID.paresUUIDthree(scanRecord);
+                    for (UUID uuid : uuidList) {
+                        if (uuid.equals(BleService.UUID_EBOYLIGHT_LED)) {
+                            Log.e(TAG, "---" + device.getName() + "---" + device.getAddress());
+
+                        }
+                    }
+                }
+            };
+
+            if (mBluetoothAdapter != null) {
+                mBluetoothAdapter.startLeScan(blLeScanCallback);
+            }
+        }
     }
 
     /**

@@ -70,6 +70,7 @@ import com.cdqf.dire_class.Venues;
 import com.cdqf.dire_find.BleFind;
 import com.cdqf.dire_find.BleOneFind;
 import com.cdqf.dire_find.ExitFind;
+import com.cdqf.dire_find.FloatBleFind;
 import com.cdqf.dire_find.MainLoginFind;
 import com.cdqf.dire_floatball.FloatService;
 import com.cdqf.dire_state.ACache;
@@ -859,6 +860,7 @@ public class MainActivity extends BaseActivity {
      */
     public void onEventMainThread(BleOpenFind open) {
         checkBluetooth();
+        eventBus.post(new FloatBleFind());
     }
 
     /**

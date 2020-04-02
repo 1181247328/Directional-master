@@ -16,19 +16,25 @@ import android.widget.RelativeLayout;
 import com.cdqf.dire.R;
 import com.cdqf.dire_dilog.MessageListDilogFragment;
 import com.cdqf.dire_find.ExitFind;
+import com.cdqf.dire_okhttp.OKHttpStringCallback;
+import com.cdqf.dire_okhttp.OnOkHttpResponseHandler;
 import com.cdqf.dire_state.BaseActivity;
 import com.cdqf.dire_state.DireState;
+import com.cdqf.dire_state.DirectAddaress;
 import com.cdqf.dire_state.StatusBarCompat;
 import com.google.gson.Gson;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zhouwei.mzbanner.MZBannerView;
 import com.zhouwei.mzbanner.holder.MZHolderCreator;
 import com.zhouwei.mzbanner.holder.MZViewHolder;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -143,6 +149,34 @@ public class PositionActivity extends BaseActivity {
         mbvPositionBanner.start();
     }
 
+    private void initPull() {
+        Map<String, String> params = new HashMap<String, String>();
+
+        //用户id
+//        params.put("user_id", String.valueOf(direState.getUser().getId()));
+
+        OkHttpUtils
+                .post()
+                .url(DirectAddaress.REWARD)
+                .params(params)
+                .build()
+                .execute(new OKHttpStringCallback(context, true, "请稍候", new OnOkHttpResponseHandler() {
+                    @Override
+                    public void onOkHttpResponse(String response, int id) {
+                        Log.e(TAG, "---onOkHttpResponse---" + response);
+//                        JSONObject resultJSON = JSON.parseObject(response);
+//                        boolean isStatus = resultJSON.getBoolean("Status");
+//                        int error_code = resultJSON.getInteger("error_code");
+//                        String msg = resultJSON.getString("msg");
+//                        JSONObject dataJson = resultJSON.getJSONObject("Data");
+                    }
+
+                    @Override
+                    public void onOkHttpError(String error) {
+                        Log.e(TAG, "---onOkHttpError---" + error);
+                    }
+                }));
+    }
 
     private void initIntent(Class<?> activity) {
         Intent intent = new Intent(context, activity);
