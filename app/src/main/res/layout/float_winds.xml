@@ -1,31 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="@dimen/dp_50"
+    android:layout_height="@dimen/dp_50"
     android:background="@android:color/transparent">
 
-    <com.gcssloop.widget.RCRelativeLayout
+    <ImageView
+        android:id="@+id/tv_winds"
         android:layout_width="@dimen/dp_50"
         android:layout_height="@dimen/dp_50"
         android:background="@android:color/transparent"
-        app:clip_background="true"
-        app:round_as_circle="true">
-
-        <LinearLayout
-            android:layout_width="@dimen/dp_50"
-            android:layout_height="@dimen/dp_50"
-            android:background="@android:color/transparent">
-
-            <ImageView
-                android:id="@+id/tv_winds"
-                android:src="@mipmap/dire_yung"
-                android:background="@android:color/transparent"
-                android:layout_width="@dimen/dp_50"
-                android:layout_height="@dimen/dp_50" />
-
-        </LinearLayout>
-
-    </com.gcssloop.widget.RCRelativeLayout>
+        android:src="@mipmap/dire_yung" />
 
 </LinearLayout>

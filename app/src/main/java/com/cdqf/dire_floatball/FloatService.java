@@ -15,7 +15,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.cdqf.dire.R;
@@ -41,7 +41,7 @@ public class FloatService extends Service {
     //创建浮动窗口设置布局参数的对象
     private WindowManager mWindowManager;
 
-    private TextView mFloatView;
+    private ImageView mFloatView;
 
     private EventBus eventBus = EventBus.getDefault();
 
@@ -57,7 +57,7 @@ public class FloatService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.i(TAG, "onCreate");
+        Log.e(TAG, "onCreate");
         if (!eventBus.isRegistered(this)) {
             eventBus.register(this);
         }
@@ -92,8 +92,9 @@ public class FloatService extends Service {
         //获取浮动窗口视图所在布局
         mFloatLayout = inflater.inflate(R.layout.float_winds, null);
         //添加mFloatLayout
+        Log.e(TAG,"添加");
         mWindowManager.addView(mFloatLayout, wmParams);
-        //浮动窗口按钮
+//        //浮动窗口按钮
         mFloatView = mFloatLayout.findViewById(R.id.tv_winds);
 
         mFloatLayout.measure(View.MeasureSpec.makeMeasureSpec(0,
@@ -161,6 +162,7 @@ public class FloatService extends Service {
             //移除悬浮窗口
             mWindowManager.removeView(mFloatLayout);
         }
+        eventBus.unregister(this);
     }
 
     @Override

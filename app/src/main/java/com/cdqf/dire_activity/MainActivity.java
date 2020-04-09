@@ -14,9 +14,11 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.graphics.Color;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -90,6 +92,8 @@ import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tencent.map.geolocation.TencentPoi;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -238,6 +242,8 @@ public class MainActivity extends BaseActivity {
 
     private int resumed;
 
+    private Intent intent = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -329,6 +335,7 @@ public class MainActivity extends BaseActivity {
 
 
     private void initBack() {
+
         User user = gson.fromJson(aCache.getAsString("user"), User.class);
         if (user != null) {
             direState.setUser(user);
@@ -373,9 +380,57 @@ public class MainActivity extends BaseActivity {
         initLocationStyle();
         distanceQuery();
 
-        Intent intent = new Intent(MainActivity.this, FloatService.class);
+        intent = new Intent(MainActivity.this, FloatService.class);
         //启动FloatViewService
         startService(intent);
+
+        //授权开启悬浮窗
+        try {
+            if (!permissionCheck(context)) {
+                permissionApplyInternal(context);
+            }
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 判断是否授权
+     *
+     * @param context
+     * @return
+     */
+    private boolean permissionCheck(Context context) {
+        Boolean result = true;
+        if (Build.VERSION.SDK_INT >= 23) {
+            try {
+                Class clazz = Settings.class;
+                Method canDrawOverlays = clazz.getDeclaredMethod("canDrawOverlays", Context.class);
+                result = (Boolean) canDrawOverlays.invoke(null, context);
+            } catch (Exception e) {
+                Log.e(TAG, Log.getStackTraceString(e));
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 引导用户前往授权
+     *
+     * @param context
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    public static void permissionApplyInternal(Context context) throws NoSuchFieldException, IllegalAccessException {
+        Class clazz = Settings.class;
+        Field field = clazz.getDeclaredField("ACTION_MANAGE_OVERLAY_PERMISSION");
+
+        Intent intent = new Intent(field.get(null).toString());
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setData(Uri.parse("package:" + context.getPackageName()));
+        context.startActivity(intent);
     }
 
     //定位蓝点
@@ -802,9 +857,9 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         // 销毁悬浮窗
-        Intent intent = new Intent(MainActivity.this, FloatService.class);
+//        Intent intent = new Intent(MainActivity.this, FloatService.class);
         //终止FloatViewService
-        stopService(intent);
+//        stopService(intent);
         super.onDestroy();
         Log.e(TAG, "---销毁---");
         eventBus.unregister(this);

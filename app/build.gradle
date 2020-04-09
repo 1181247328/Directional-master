@@ -1,23 +1,32 @@
 apply plugin: 'com.android.application'
 
 android {
+//    signingConfigs {
+//        release {
+//            keyAlias 'dire'
+//            keyPassword '123456'
+//            storeFile file('D:/AnroidStudio/Directional/Directional-master/app/dire.jks')
+//            storePassword '123456'
+//        }
+//    }
+//
+//    buildTypes {
+//        debug {
+//            signingConfig signingConfigs.release
+//        }
+//        release {
+//            signingConfig signingConfigs.release
+//        }
+//    }
     signingConfigs {
-        release {
+        config {
             keyAlias 'dire'
             keyPassword '123456'
-            storeFile file('D:/AnroidStudio/Directional-master/app/dire.jks')
+            storeFile file('D:/AndroidStudio/Directional/Directional-master/app/dire.jks')
             storePassword '123456'
         }
     }
 
-    buildTypes {
-        debug {
-            signingConfig signingConfigs.release
-        }
-        release {
-            signingConfig signingConfigs.release
-        }
-    }
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
     aaptOptions.cruncherEnabled = false
@@ -60,7 +69,6 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-
     defaultConfig {
         ndk {
             //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
@@ -97,7 +105,6 @@ dependencies {
     api project(':RCLayout')
     api project(':viewpagerindicator_master')
     api 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-
     api 'org.sufficientlysecure:html-textview:3.6'
     api 'com.xw.repo:xedittext:2.0.0'
     api 'com.youth.banner:banner:1.4.10'
@@ -129,6 +136,6 @@ dependencies {
     //搜索功能
     implementation 'com.amap.api:search:latest.integration'
     //noinspection DuplicatePlatformClasses
-    implementation "commons-logging:commons-logging:1.2"
+    implementation 'commons-logging:commons-logging:1.2'
 }
 
