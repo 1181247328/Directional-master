@@ -8,7 +8,7 @@
     <com.gcssloop.widget.RCRelativeLayout
         android:layout_width="@dimen/dp_50"
         android:layout_height="@dimen/dp_50"
-        android:background="@color/orderdetails_two"
+        android:background="@android:color/transparent"
         app:clip_background="true"
         app:round_as_circle="true">
 
@@ -17,8 +17,10 @@
             android:layout_height="@dimen/dp_50"
             android:background="@android:color/transparent">
 
-            <TextView
+            <ImageView
                 android:id="@+id/tv_winds"
+                android:src="@mipmap/dire_yung"
+                android:background="@android:color/transparent"
                 android:layout_width="@dimen/dp_50"
                 android:layout_height="@dimen/dp_50" />
 

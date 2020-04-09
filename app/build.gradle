@@ -5,7 +5,7 @@ android {
         release {
             keyAlias 'dire'
             keyPassword '123456'
-            storeFile file('D:/AndroidStudio/Directional/Directional-master/app/dire.jks')
+            storeFile file('D:/AnroidStudio/Directional-master/app/dire.jks')
             storePassword '123456'
         }
     }

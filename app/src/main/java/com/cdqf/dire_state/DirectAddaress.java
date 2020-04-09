@@ -11,7 +11,7 @@ public class DirectAddaress {
     //线上
     public static final String ADDRESS = "http://jx.quanyubao.cn";
 
-    //会馆列表
+    //会馆列表http://jx.quanyubao.cn/api/v1/Site/getSite
     public static final String SITE = ADDRESS + "/api/v1/Site/getSite";
 
     //会馆路线
