@@ -107,4 +107,7 @@ public class DirectAddaress {
     //我的勋章
     public static final String MEDAL = ADDRESS + "/api/v1/User/complete_medal";
 
+    //当前所在景区
+    public static final String POSITION = ADDRESS + "/api/v1/Live/introduce";
+
 }

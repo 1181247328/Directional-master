@@ -23,6 +23,7 @@ public class MessageListAdapter extends BaseAdapter {
 
     private String[] name = {
             "语音介绍",
+            "取消"
     };
 
     public MessageListAdapter(Context context) {

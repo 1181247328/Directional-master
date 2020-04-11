@@ -16,7 +16,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.cdqf.dire.R;
 import com.cdqf.dire_activity.PositionActivity;
@@ -147,7 +146,7 @@ public class FloatService extends Service {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(FloatService.this, "一百块都不给我！", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(FloatService.this, "一百块都不给我！", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(FloatService.this, PositionActivity.class);
                 startActivity(intent);
             }

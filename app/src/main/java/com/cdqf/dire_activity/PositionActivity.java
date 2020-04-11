@@ -13,9 +13,14 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.cdqf.dire.R;
+import com.cdqf.dire_class.Position;
+import com.cdqf.dire_dilog.ForDilogFragment;
 import com.cdqf.dire_dilog.MessageListDilogFragment;
 import com.cdqf.dire_find.ExitFind;
+import com.cdqf.dire_find.MessageFind;
 import com.cdqf.dire_okhttp.OKHttpStringCallback;
 import com.cdqf.dire_okhttp.OnOkHttpResponseHandler;
 import com.cdqf.dire_state.BaseActivity;
@@ -29,6 +34,7 @@ import com.zhouwei.mzbanner.holder.MZHolderCreator;
 import com.zhouwei.mzbanner.holder.MZViewHolder;
 import com.zhy.http.okhttp.OkHttpUtils;
 
+import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import java.util.ArrayList;
@@ -73,6 +79,8 @@ public class PositionActivity extends BaseActivity {
     //内容
     @BindView(R.id.htv_position_content)
     public HtmlTextView htvPositionContent = null;
+
+    private Position p = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +136,8 @@ public class PositionActivity extends BaseActivity {
     private void initBack() {
         initBanner();
 //        htvPositionContent.setHtml("这是一个景区详情", new HtmlHttpImageGetter(htvPositionContent));
-        htvPositionContent.setText("这是一个景区详情");
+        htvPositionContent.setText("湘山纪念馆");
+        initPull();
     }
 
     private void initBanner() {
@@ -153,22 +162,37 @@ public class PositionActivity extends BaseActivity {
         Map<String, String> params = new HashMap<String, String>();
 
         //用户id
-//        params.put("user_id", String.valueOf(direState.getUser().getId()));
+        params.put("device", "C2:01:B0:00:01:8E");
 
         OkHttpUtils
-                .post()
-                .url(DirectAddaress.REWARD)
+                .get()
+                .url(DirectAddaress.POSITION)
                 .params(params)
                 .build()
                 .execute(new OKHttpStringCallback(context, true, "请稍候", new OnOkHttpResponseHandler() {
                     @Override
                     public void onOkHttpResponse(String response, int id) {
                         Log.e(TAG, "---onOkHttpResponse---" + response);
-//                        JSONObject resultJSON = JSON.parseObject(response);
-//                        boolean isStatus = resultJSON.getBoolean("Status");
-//                        int error_code = resultJSON.getInteger("error_code");
-//                        String msg = resultJSON.getString("msg");
-//                        JSONObject dataJson = resultJSON.getJSONObject("Data");
+                        JSONObject resultJSON = JSON.parseObject(response);
+                        boolean isStatus = resultJSON.getBoolean("Status");
+                        int error_code = resultJSON.getInteger("error_code");
+                        String msg = resultJSON.getString("msg");
+                        String dataJson = resultJSON.getString("Data");
+                        if (isStatus) {
+                            switch (error_code) {
+                                //获取成功
+                                case 0:
+                                    p = gson.fromJson(dataJson, Position.class);
+                                    //图片
+//                                    initBanner();
+                                    //详情
+                                    htvPositionContent.setHtml(p.getContent(), new HtmlHttpImageGetter(htvPositionContent));
+                                    break;
+                                //获取节点失败
+                                case 400:
+                                    break;
+                            }
+                        }
                     }
 
                     @Override
@@ -253,6 +277,18 @@ public class PositionActivity extends BaseActivity {
         public void onBind(Context context, int i, String s) {
             imageLoader.displayImage(s, ivShopItemImage, cartState.getImageLoaderOptions(R.mipmap.not_loaded, R.mipmap.not_loaded, R.mipmap.not_loaded));
         }
+    }
+
+    /**
+     * 语音介绍对话框
+     *
+     * @param r
+     */
+    public void onEventMainThread(MessageFind r) {
+        ForDilogFragment forDilogFragment = new ForDilogFragment();
+        forDilogFragment.setType(1);
+        forDilogFragment.setName("景点名称");
+        forDilogFragment.show(getSupportFragmentManager(), "景点名称");
     }
 
     /**

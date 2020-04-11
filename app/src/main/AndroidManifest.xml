@@ -302,19 +302,31 @@
         <activity
             android:name="com.cdqf.dire_activity.LineActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+
+        </activity>
 
         <!--赛事活动-->
         <activity
             android:name="com.cdqf.dire_activity.CementActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+
+        </activity>
 
         <!--赛事活动详情-->
         <activity
             android:name="com.cdqf.dire_activity.CementContextActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+
+        </activity>
 
         <!--我的订单-->
         <activity

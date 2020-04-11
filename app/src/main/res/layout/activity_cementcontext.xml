@@ -208,6 +208,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/white"
                                 android:paddingLeft="@dimen/dp_10"
+                                android:text=""
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/sp_14" />
 

@@ -11,10 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.cdqf.dire.R;
 import com.cdqf.dire_dilgadapter.MessageListAdapter;
+import com.cdqf.dire_find.MessageFind;
 import com.cdqf.dire_state.DireState;
 
 import butterknife.BindView;
@@ -85,6 +87,13 @@ public class MessageListDilogFragment extends DialogFragment {
     private void initListener() {
         messageListAdapter = new MessageListAdapter(getContext());
         lvMessageItemList.setAdapter(messageListAdapter);
+        lvMessageItemList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                eventBus.post(new MessageFind(position));
+                dismiss();
+            }
+        });
     }
 
     /**

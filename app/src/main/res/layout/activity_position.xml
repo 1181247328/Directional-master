@@ -43,7 +43,7 @@
                 android:layout_centerVertical="true"
                 android:background="@android:color/transparent"
                 android:gravity="center_vertical|center"
-                android:text="景点名称"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_14" />
 
@@ -103,9 +103,11 @@
             android:layout_height="match_parent"
             android:lineSpacingExtra="@dimen/dp_2"
             android:paddingBottom="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
             android:textAppearance="@android:style/TextAppearance.Small"
             android:textColor="@color/black"
-            android:textSize="@dimen/sp_12" />
+            android:textSize="@dimen/sp_14" />
 
     </LinearLayout>
 
