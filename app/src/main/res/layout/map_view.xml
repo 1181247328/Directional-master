@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.gcssloop.widget.RCRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:id="@+id/tv_map_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:text="海洋天堂"
+            android:textColor="@color/personal_item_name"
+            android:textSize="@dimen/sp_12"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_map_title"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent">
+
+            <ImageView
+
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_53"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/map_back" />
+
+            <com.gcssloop.widget.RCRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@android:color/transparent"
+                app:clip_background="true"
+                app:round_as_circle="true">
+
+                <ImageView
+                    android:id="@+id/iv_map_image"
+                    android:layout_width="@dimen/dp_37"
+                    android:layout_height="@dimen/dp_33"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/welcome" />
+
+            </com.gcssloop.widget.RCRelativeLayout>
+
+        </RelativeLayout>
+
+    </com.gcssloop.widget.RCRelativeLayout>
+
+</LinearLayout>

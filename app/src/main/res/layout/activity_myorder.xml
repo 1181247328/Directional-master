@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/strategy_item_published"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl_myorder_return"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/order_click_one"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingBottom="@dimen/dp_10">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_18"
+                    android:layout_height="@dimen/dp_18"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/pldetails_return" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical|center"
+                android:text="我的订单"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
+
+            <RelativeLayout
+                android:id="@+id/rl_myorder_message"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingTop="@dimen/dp_8"
+                android:paddingBottom="@dimen/dp_8"
+                android:visibility="gone">
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <com.zhengsr.viewpagerlib.indicator.TabIndicator
+            android:id="@+id/ti_myorder_dicatior"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white"
+            app:tab_color="@color/strategy_item_published"
+            app:tab_height="@dimen/dp_1_5"
+            app:tab_show="true"
+            app:tab_text_change_color="@color/strategy_item_published"
+            app:tab_text_default_color="@color/plant_address"
+            app:tab_text_type="normaltext"
+            app:tab_textsize="@dimen/sp_14"
+            app:tab_width="@dimen/dp_55"
+            app:tap_type="rect"
+            app:visiabel_size="4">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="全部"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="待支付"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="已支付"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="已完成"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14" />
+
+        </com.zhengsr.viewpagerlib.indicator.TabIndicator>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_myorder_screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

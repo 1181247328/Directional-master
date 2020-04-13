@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_my"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_forapyment_there"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/back_my"
+        android:gravity="center_vertical|center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:scaleType="fitXY"
+            android:src="@mipmap/allorder_no" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:gravity="center|clip_vertical"
+            android:text="暂无订单~"
+            android:textColor="@color/cement_one"
+            android:textSize="@dimen/sp_14" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_forapyment_are"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/back_my"
+        android:orientation="vertical">
+
+        <com.jingchen.pulltorefresh.PullToRefreshLayout
+            android:id="@+id/ptrl_forapyment_pull"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/back_my">
+
+            <com.jingchen.pulltorefresh.PullableListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:divider="@color/back_my"
+                android:dividerHeight="@dimen/dp_10"
+                android:scrollbars="none" />
+
+        </com.jingchen.pulltorefresh.PullToRefreshLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

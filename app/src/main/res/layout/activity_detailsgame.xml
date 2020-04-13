@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_detailsgame_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/white"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingLeft="@dimen/dp_15"
+                android:paddingRight="@dimen/dp_15"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14" />
+
+            <RelativeLayout
+                android:id="@+id/rl_detailsgame_return"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:background="@drawable/component_click"
+                android:clickable="true"
+                android:paddingLeft="@dimen/dp_5">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_18"
+                    android:layout_height="@dimen/dp_17"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/plantscience_return" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/iv_detailsgame_map"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_250"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_50"
+                android:layout_marginRight="@dimen/dp_5"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_detailsgame_views"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_detailsgame_map"
+                android:paddingLeft="@dimen/dp_5"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_5"
+                android:paddingBottom="@dimen/dp_10"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/iv_detailsgame_map"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:gravity="center">
+
+                <com.gcssloop.widget.RCRelativeLayout
+                    android:id="@+id/rcrl_detailsgame_questions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    app:clip_background="true"
+                    app:round_corner="@dimen/dp_20">
+
+                    <TextView
+                        android:id="@+id/tv_detailsgame_questions"
+                        android:layout_width="@dimen/dp_200"
+                        android:layout_height="wrap_content"
+                        android:background="@color/plant_address"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/dp_12"
+                        android:paddingBottom="@dimen/dp_12"
+                        android:text="开始答题"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_16" />
+
+                </com.gcssloop.widget.RCRelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

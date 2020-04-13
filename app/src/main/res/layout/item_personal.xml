@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/component_click"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/dp_30"
+    android:paddingTop="@dimen/dp_15"
+    android:paddingBottom="@dimen/dp_15">
+
+    <ImageView
+        android:id="@+id/iv_personal_item_image"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:background="@android:color/transparent"
+        android:src="@mipmap/personal_password" />
+
+    <TextView
+        android:id="@+id/tv_personal_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp_30"
+        android:text="找回密码"
+        android:textColor="@color/personal_item_name"
+        android:textSize="@dimen/sp_16" />
+
+</LinearLayout>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/login_background"
+        android:paddingBottom="@dimen/dp_13"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/login_background"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_location_dilog_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_horizontal"
+                android:paddingTop="@dimen/dp_8"
+                android:paddingBottom="@dimen/dp_8"
+                android:text="位置1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_18" />
+
+            <ImageView
+                android:id="@+id/iv_location_dilog_back"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_170"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/test2" />
+
+            <com.gcssloop.widget.RCRelativeLayout
+                android:id="@+id/rcrl_location_dilog_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_18"
+                android:layout_marginTop="@dimen/dp_13"
+                android:layout_marginRight="@dimen/dp_18"
+                android:background="@drawable/component_click"
+                android:clickable="true"
+                android:visibility="gone"
+                app:round_corner="@dimen/dp_3">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_10"
+                    android:text="语音介绍(中文版)"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16" />
+
+            </com.gcssloop.widget.RCRelativeLayout>
+
+            <com.gcssloop.widget.RCRelativeLayout
+                android:id="@+id/rcrl_location_dilog_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_18"
+                android:layout_marginTop="@dimen/dp_13"
+                android:layout_marginRight="@dimen/dp_18"
+                android:background="@drawable/component_click"
+                android:clickable="true"
+                android:visibility="gone"
+                app:round_corner="@dimen/dp_3">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_10"
+                    android:text="语音介绍(英文版)"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16" />
+
+            </com.gcssloop.widget.RCRelativeLayout>
+
+            <com.gcssloop.widget.RCRelativeLayout
+                android:id="@+id/rcrl_location_dilog_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_18"
+                android:layout_marginTop="@dimen/dp_13"
+                android:layout_marginRight="@dimen/dp_18"
+                android:background="@drawable/component_click"
+                android:clickable="true"
+                app:round_corner="@dimen/dp_3">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_10"
+                    android:text="景点介绍"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16" />
+
+            </com.gcssloop.widget.RCRelativeLayout>
+
+            <com.gcssloop.widget.RCRelativeLayout
+                android:id="@+id/rcrl_location_dilog_five"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_18"
+                android:layout_marginTop="@dimen/dp_13"
+                android:layout_marginRight="@dimen/dp_18"
+                android:background="@drawable/component_click"
+                android:clickable="true"
+                app:round_corner="@dimen/dp_3">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_10"
+                    android:text="答题"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16" />
+
+            </com.gcssloop.widget.RCRelativeLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

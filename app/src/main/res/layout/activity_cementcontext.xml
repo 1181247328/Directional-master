@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/srl_cements_pull"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fitsSystemWindows="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_my_layouttwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="活动详情"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_cements_return"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    android:background="@drawable/component_click"
+                    android:clickable="true"
+                    android:paddingTop="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_10">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_19"
+                        android:layout_height="@dimen/dp_17"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:background="@android:color/transparent"
+                        android:src="@mipmap/plantscience_return" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_cements_share"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/component_click"
+                    android:clickable="true"
+                    android:paddingTop="@dimen/dp_12"
+                    android:paddingBottom="@dimen/dp_12"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_19"
+                        android:layout_height="@dimen/dp_17"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:background="@android:color/transparent"
+                        android:src="@mipmap/strategy_item_share" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/login_background" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/back_my">
+
+                <com.cdqf.dire_view.GoTopScrollView
+                    android:id="@+id/tgsc_cments_scv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/back_my"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/back_my"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_cements_hear"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_150"
+                            android:background="@color/white"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/test2" />
+
+                        <TextView
+                            android:id="@+id/tv_cements_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:paddingLeft="@dimen/dp_10"
+                            android:paddingTop="@dimen/dp_5"
+                            android:paddingRight="@dimen/dp_10"
+                            android:paddingBottom="@dimen/dp_5"
+                            android:text="青秀山"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_14" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/dp_10"
+                            android:paddingTop="@dimen/dp_5"
+                            android:paddingRight="@dimen/dp_10"
+                            android:paddingBottom="@dimen/dp_10">
+
+                            <com.gcssloop.widget.RCRelativeLayout
+                                android:id="@+id/rcrl_cements_through"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/cement_context_one"
+                                app:clip_background="true"
+                                app:round_corner="@dimen/dp_2">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@android:color/transparent"
+                                    android:paddingLeft="@dimen/dp_12"
+                                    android:paddingTop="@dimen/dp_4"
+                                    android:paddingRight="@dimen/dp_12"
+                                    android:paddingBottom="@dimen/dp_4"
+                                    android:text="线路预览"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/sp_12" />
+
+                            </com.gcssloop.widget.RCRelativeLayout>
+
+                            <com.gcssloop.widget.RCRelativeLayout
+                                android:id="@+id/rcrl_cements_nodes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp_10"
+                                android:background="@color/white"
+                                app:clip_background="true"
+                                app:round_corner="@dimen/dp_2"
+                                app:stroke_color="@color/cement_context_one"
+                                app:stroke_width="@dimen/dp_0_5">
+
+                                <TextView
+                                    android:id="@+id/tv_cements_nodes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@android:color/transparent"
+                                    android:paddingLeft="@dimen/dp_12"
+                                    android:paddingTop="@dimen/dp_4"
+                                    android:paddingRight="@dimen/dp_12"
+                                    android:paddingBottom="@dimen/dp_4"
+                                    android:text="景点介绍"
+                                    android:textColor="@color/cement_context_one"
+                                    android:textSize="@dimen/sp_12" />
+
+                            </com.gcssloop.widget.RCRelativeLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_5"
+                            android:background="@color/white"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/dp_10"
+                            android:paddingTop="@dimen/dp_8"
+                            android:paddingRight="@dimen/dp_10"
+                            android:paddingBottom="@dimen/dp_8">
+
+                            <ImageView
+                                android:layout_width="@dimen/dp_17"
+                                android:layout_height="@dimen/dp_17"
+                                android:background="@color/white"
+                                android:src="@mipmap/cements_timer" />
+
+                            <TextView
+                                android:id="@+id/tv_cements_timer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:paddingLeft="@dimen/dp_10"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_14" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_1"
+                            android:background="@color/white"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/dp_10"
+                            android:paddingTop="@dimen/dp_8"
+                            android:paddingRight="@dimen/dp_10"
+                            android:paddingBottom="@dimen/dp_8">
+
+                            <ImageView
+                                android:layout_width="@dimen/dp_17"
+                                android:layout_height="@dimen/dp_17"
+                                android:background="@color/white"
+                                android:src="@mipmap/cements_address" />
+
+                            <TextView
+                                android:id="@+id/tv_cements_address"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:paddingLeft="@dimen/dp_10"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_14" />
+
+                        </LinearLayout>
+
+                        <org.sufficientlysecure.htmltextview.HtmlTextView
+                            android:id="@+id/htv_cements_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/dp_5"
+                            android:background="@color/white"
+                            android:lineSpacingExtra="@dimen/dp_2"
+                            android:paddingLeft="@dimen/dp_10"
+                            android:paddingTop="@dimen/dp_8"
+                            android:paddingRight="@dimen/dp_10"
+                            android:paddingBottom="@dimen/dp_10"
+                            android:textAppearance="@android:style/TextAppearance.Small"
+                            android:textColor="@color/cement_context_two"
+                            android:textSize="@dimen/sp_14" />
+
+                    </LinearLayout>
+
+                </com.cdqf.dire_view.GoTopScrollView>
+
+                <ImageView
+                    android:id="@+id/iv_cments_top"
+                    android:layout_width="@dimen/dp_45"
+                    android:layout_height="@dimen/dp_45"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_marginBottom="@dimen/dp_50"
+                    android:src="@mipmap/cement_top"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.v4.widget.SwipeRefreshLayout>
