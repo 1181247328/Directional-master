@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
-import com.cdqf.dire_floatball.CloseFind;
 import com.cdqf.dire_floatball.OpenFind;
 
 import de.greenrobot.event.EventBus;
@@ -34,7 +33,6 @@ public class BaseActivity extends FragmentActivity {
     protected void onPause() {
         super.onPause();
         Log.e(TAG, "---暂停---");
-        eventBus.post(new CloseFind());
     }
 
     @Override

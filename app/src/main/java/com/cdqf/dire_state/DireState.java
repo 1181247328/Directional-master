@@ -41,6 +41,7 @@ import com.cdqf.dire_class.Live;
 import com.cdqf.dire_class.Medal;
 import com.cdqf.dire_class.Period;
 import com.cdqf.dire_class.Point;
+import com.cdqf.dire_class.PosiList;
 import com.cdqf.dire_class.Route;
 import com.cdqf.dire_class.Scenic;
 import com.cdqf.dire_class.Team;
@@ -219,6 +220,9 @@ public class DireState {
 
     //当前所在景区的名称
     private String addressName = "";
+
+    //经过的景区
+    private List<PosiList> posiListList = new CopyOnWriteArrayList<>();
 
     /**
      * 提示信息
@@ -1184,6 +1188,14 @@ public class DireState {
 
     public void setAddressName(String addressName) {
         this.addressName = addressName;
+    }
+
+    public List<PosiList> getPosiListList() {
+        return posiListList;
+    }
+
+    public void setPosiListList(List<PosiList> posiListList) {
+        this.posiListList = posiListList;
     }
 }
 

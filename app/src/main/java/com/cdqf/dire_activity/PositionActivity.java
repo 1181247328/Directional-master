@@ -22,7 +22,7 @@ import com.cdqf.dire.R;
 import com.cdqf.dire_class.Position;
 import com.cdqf.dire_dilog.MessageListDilogFragment;
 import com.cdqf.dire_find.ExitFind;
-import com.cdqf.dire_floatball.OpenFind;
+import com.cdqf.dire_floatball.CloseFind;
 import com.cdqf.dire_okhttp.OKHttpStringCallback;
 import com.cdqf.dire_okhttp.OnOkHttpResponseHandler;
 import com.cdqf.dire_state.BaseActivity;
@@ -105,6 +105,8 @@ public class PositionActivity extends BaseActivity {
 
     private Position position = null;
 
+    private String ble;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,6 +144,9 @@ public class PositionActivity extends BaseActivity {
         if (!eventBus.isRegistered(this)) {
             eventBus.register(this);
         }
+        Intent intent = getIntent();
+        ble = intent.getStringExtra("address");
+        Log.e(TAG, "---获得的地址---"+ble);
     }
 
     private void initView() {
@@ -193,7 +198,7 @@ public class PositionActivity extends BaseActivity {
         Map<String, String> params = new HashMap<String, String>();
 
         //当前地址
-        params.put("device", cartState.getAddress());
+        params.put("device", ble);
 
         OkHttpUtils
                 .get()
@@ -272,7 +277,6 @@ public class PositionActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rl_myorder_return:
-                eventBus.post(new OpenFind());
                 finish();
                 break;
             //其它
@@ -285,7 +289,6 @@ public class PositionActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        eventBus.post(new OpenFind());
         finish();
     }
 
@@ -299,6 +302,7 @@ public class PositionActivity extends BaseActivity {
     protected void onRestart() {
         super.onRestart();
         Log.e(TAG, "---恢复---");
+        eventBus.post(new CloseFind());
     }
 
     @Override

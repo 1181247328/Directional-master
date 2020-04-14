@@ -452,6 +452,14 @@
 
         </activity>
 
+        <!--景点列表-->
+        <activity
+            android:name="com.cdqf.dire_activity.PosiListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
         <service
             android:name="com.cdqf.dire_ble.BleService"
             android:permission="true" />

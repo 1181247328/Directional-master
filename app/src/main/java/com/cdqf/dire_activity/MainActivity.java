@@ -79,6 +79,7 @@ import com.cdqf.dire_state.ACache;
 import com.cdqf.dire_state.BaseActivity;
 import com.cdqf.dire_state.DireState;
 import com.cdqf.dire_state.DirectAddaress;
+import com.cdqf.dire_state.DirectPreferences;
 import com.cdqf.dire_state.StatusBarCompat;
 import com.cdqf.dire_txmap.TXMapLoad;
 import com.cdqf.dire_utils.HttpRequestWrap;
@@ -313,6 +314,9 @@ public class MainActivity extends BaseActivity {
 
         //注册注解
         ButterKnife.bind(this);
+        if (DirectPreferences.getPosiList(context) != null) {
+            direState.setPosiListList(DirectPreferences.getPosiList(context));
+        }
     }
 
     /**

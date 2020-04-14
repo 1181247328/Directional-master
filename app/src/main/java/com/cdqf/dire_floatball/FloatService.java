@@ -3,6 +3,7 @@ package com.cdqf.dire_floatball;
 import android.annotation.SuppressLint;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Build;
@@ -18,10 +19,13 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.cdqf.dire.R;
-import com.cdqf.dire_activity.PositionActivity;
+import com.cdqf.dire_activity.PosiListActivity;
 import com.cdqf.dire_class.BlePosition;
+import com.cdqf.dire_class.PosiList;
+import com.cdqf.dire_class.PosiListFind;
 import com.cdqf.dire_find.FloatBleFind;
 import com.cdqf.dire_state.DireState;
+import com.cdqf.dire_state.DirectPreferences;
 
 import de.greenrobot.event.EventBus;
 
@@ -49,10 +53,15 @@ public class FloatService extends Service {
     //扫描
     private BluetoothAdapter.LeScanCallback blLeScanCallback = null;
 
+    private Context context = null;
+
+    private boolean isFloast = true;
+
     @Override
     public void onCreate() {
         super.onCreate();
         Log.e(TAG, "onCreate");
+        context = this;
         if (!eventBus.isRegistered(this)) {
             eventBus.register(this);
         }
@@ -64,6 +73,7 @@ public class FloatService extends Service {
     @SuppressWarnings("static-access")
     @SuppressLint("InflateParams")
     private void createFloatView() {
+        isFloast = true;
         wmParams = new WindowManager.LayoutParams();
         //通过getApplication获取的是WindowManagerImpl.CompatModeWrapper
         mWindowManager = (WindowManager) getApplication().getSystemService(getApplication().WINDOW_SERVICE);
@@ -142,15 +152,13 @@ public class FloatService extends Service {
 
             @Override
             public void onClick(View v) {
-                if (TextUtils.equals("", direState.getAddress())) {
-                    direState.initToast(FloatService.this, "您周边没有景点", true, 0);
-                    return;
-                }
-                Intent intent = new Intent(FloatService.this, PositionActivity.class);
+//                Intent intent = new Intent(FloatService.this, PositionActivity.class);
+                Intent intent = new Intent(FloatService.this, PosiListActivity.class);
                 startActivity(intent);
                 if (mFloatLayout != null) {
                     //移除悬浮窗口
                     mWindowManager.removeView(mFloatLayout);
+                    isFloast = false;
                 }
             }
         });
@@ -228,6 +236,17 @@ public class FloatService extends Service {
                 direState.setAddress(ble.getBle());
                 direState.setAddressName(ble.getBleName());
                 direState.initToast(FloatService.this, "您当前所在景点为" + ble.getBleName(), false, 0);
+                //保存当前节点
+                for (PosiList posi : direState.getPosiListList()) {
+                    if (TextUtils.equals(posi.getBle(), ble.getBle())) {
+                        direState.getPosiListList().remove(posi);
+                        break;
+                    }
+                }
+                PosiList posiList = new PosiList(ble.getBleName(), ble.getBle());
+                direState.getPosiListList().add(posiList);
+                DirectPreferences.setPosiList(context, direState.getPosiListList());
+                eventBus.post(new PosiListFind());
                 break;
             }
         }
@@ -240,6 +259,10 @@ public class FloatService extends Service {
      * @param o
      */
     public void onEventMainThread(OpenFind o) {
+        if (mFloatLayout != null&&isFloast) {
+            //移除悬浮窗口
+            mWindowManager.removeView(mFloatLayout);
+        }
         createFloatView();
     }
 
@@ -252,6 +275,7 @@ public class FloatService extends Service {
         if (mFloatLayout != null) {
             //移除悬浮窗口
             mWindowManager.removeView(mFloatLayout);
+            isFloast = false;
         }
     }
 }

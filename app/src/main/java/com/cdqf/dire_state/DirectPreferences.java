@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.cdqf.dire_class.Live;
+import com.cdqf.dire_class.PosiList;
 import com.cdqf.dire_class.User;
 import com.cdqf.dire_class.UserLine;
 import com.google.gson.Gson;
@@ -25,6 +26,9 @@ public class DirectPreferences {
 
     //当前用户正在进行的线路
     private static final String LINE_USER = "Line_User";
+
+    //用户在本软件经过的景点
+    private static final String POSI_LIST = "Posi_List";
 
     private static Gson gson = new Gson();
 
@@ -135,6 +139,49 @@ public class DirectPreferences {
      */
     public static void clearUserLine(Context context) {
         seabedPreferences = context.getSharedPreferences(LINE_USER, 0);
+        seabedEditor = seabedPreferences.edit().clear();
+        seabedEditor.commit();
+    }
+
+    /**
+     * 经过的景点
+     *
+     * @param context
+     * @param posiLists
+     */
+    public static void setPosiList(Context context, List<PosiList> posiLists) {
+        seabedPreferences = context.getSharedPreferences(POSI_LIST, 0);
+        seabedEditor = seabedPreferences.edit();
+        String posiList = gson.toJson(posiLists, new TypeToken<List<PosiList>>() {
+        }.getType());
+        seabedEditor.putString("posi_list", posiList);
+        seabedEditor.commit();
+    }
+
+    /**
+     * 获取经过的景点
+     *
+     * @param context
+     * @return
+     */
+    public static List<PosiList> getPosiList(Context context) {
+        seabedPreferences = context.getSharedPreferences(POSI_LIST, 0);
+        String posiList = seabedPreferences.getString("posi_list", "");
+        if (posiList.equals("")) {
+            return null;
+        }
+        List<PosiList> posiListList = gson.fromJson(posiList, new TypeToken<List<PosiList>>() {
+        }.getType());
+        return posiListList;
+    }
+
+    /**
+     * 删除当前
+     *
+     * @param context
+     */
+    public static void clearPosiList(Context context) {
+        seabedPreferences = context.getSharedPreferences(POSI_LIST, 0);
         seabedEditor = seabedPreferences.edit().clear();
         seabedEditor.commit();
     }

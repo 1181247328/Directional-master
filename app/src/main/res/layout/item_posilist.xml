@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shop_item">
+
+    <TextView
+        android:id="@+id/tv_posi_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingLeft="@dimen/dp_8"
+        android:paddingTop="@dimen/dp_14"
+        android:paddingRight="@dimen/dp_8"
+        android:paddingBottom="@dimen/dp_14"
+        android:text="景点"
+        android:textColor="@color/card_three_font"
+        android:textSize="@dimen/sp_16" />
+
+</LinearLayout>
