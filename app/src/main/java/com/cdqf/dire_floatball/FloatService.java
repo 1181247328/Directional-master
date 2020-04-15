@@ -78,7 +78,12 @@ public class FloatService extends Service {
         //通过getApplication获取的是WindowManagerImpl.CompatModeWrapper
         mWindowManager = (WindowManager) getApplication().getSystemService(getApplication().WINDOW_SERVICE);
         //设置window type
-        wmParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+//        wmParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        if (Build.VERSION.SDK_INT == 23) {
+            wmParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        } else {
+            wmParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }
         //设置图片格式，效果为背景透明
         wmParams.format = PixelFormat.RGBA_8888;
         //设置浮动窗口不可聚焦（实现操作除浮动窗口外的其他可见窗口的操作）
@@ -99,6 +104,7 @@ public class FloatService extends Service {
         //添加mFloatLayout
         Log.e(TAG, "添加");
         mWindowManager.addView(mFloatLayout, wmParams);
+
 //        //浮动窗口按钮
         mFloatView = mFloatLayout.findViewById(R.id.tv_winds);
 
@@ -157,7 +163,7 @@ public class FloatService extends Service {
                 startActivity(intent);
                 if (mFloatLayout != null) {
                     //移除悬浮窗口
-                    mWindowManager.removeView(mFloatLayout);
+                    mWindowManager.removeViewImmediate(mFloatLayout);
                     isFloast = false;
                 }
             }
@@ -214,7 +220,7 @@ public class FloatService extends Service {
         super.onDestroy();
         if (mFloatLayout != null) {
             //移除悬浮窗口
-            mWindowManager.removeView(mFloatLayout);
+            mWindowManager.removeViewImmediate(mFloatLayout);
         }
         eventBus.unregister(this);
     }
@@ -261,7 +267,7 @@ public class FloatService extends Service {
     public void onEventMainThread(OpenFind o) {
         if (mFloatLayout != null&&isFloast) {
             //移除悬浮窗口
-            mWindowManager.removeView(mFloatLayout);
+            mWindowManager.removeViewImmediate(mFloatLayout);
         }
         createFloatView();
     }
@@ -274,7 +280,7 @@ public class FloatService extends Service {
     public void onEventMainThread(CloseFind c) {
         if (mFloatLayout != null) {
             //移除悬浮窗口
-            mWindowManager.removeView(mFloatLayout);
+            mWindowManager.removeViewImmediate(mFloatLayout);
             isFloast = false;
         }
     }
