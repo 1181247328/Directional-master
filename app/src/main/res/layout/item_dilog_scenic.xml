@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shop_item">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingLeft="@dimen/dp_8"
+        android:paddingTop="@dimen/dp_14"
+        android:paddingRight="@dimen/dp_8"
+        android:paddingBottom="@dimen/dp_14">
+
+        <com.gcssloop.widget.RCRelativeLayout
+            android:id="@+id/rcrl_scenic_dilog_hear"
+            android:layout_width="@dimen/dp_70"
+            android:layout_height="@dimen/dp_70"
+            android:background="@color/white"
+            app:clip_background="true"
+            app:round_as_circle="true">
+
+            <ImageView
+                android:id="@+id/iv_scenic_dilog_hear"
+                android:layout_width="@dimen/dp_70"
+                android:layout_height="@dimen/dp_70"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/test2" />
+
+        </com.gcssloop.widget.RCRelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_scenic_dilog_play"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/iv_scenic_dilog_play"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/main_play_one" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_toRightOf="@id/rcrl_scenic_dilog_hear"
+            android:layout_toLeftOf="@id/rl_scenic_dilog_play"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:paddingLeft="@dimen/dp_10"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_scenic_main_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dp_5"
+                android:background="@android:color/transparent"
+                android:paddingBottom="@dimen/dp_5"
+                android:paddingRight="@dimen/dp_10"
+                android:text="景点名称"
+                android:textColor="@color/main_one"
+                android:textSize="@dimen/sp_17" />
+
+            <LinearLayout
+                android:id="@+id/ll_scenic_main_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/dp_5"
+                android:paddingBottom="@dimen/dp_5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:paddingRight="@dimen/dp_5"
+                    android:text="查看详情"
+                    android:textColor="@color/main_two"
+                    android:textSize="@dimen/sp_14" />
+
+                <ImageView
+                    android:layout_width="@dimen/dp_12"
+                    android:layout_height="@dimen/dp_11"
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/main_right" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

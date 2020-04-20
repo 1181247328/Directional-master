@@ -50,8 +50,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        tools:ignore="LockedOrientationActivity"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="LockedOrientationActivity">
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -486,6 +486,14 @@
         <service
             android:name="com.cdqf.dire_floatball.FloatService"
             android:permission="true" />
+
+        <!--蓝牙列表-->
+        <activity
+            android:name="com.cdqf.dire_activity.BleListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
 
     </application>
 </manifest>

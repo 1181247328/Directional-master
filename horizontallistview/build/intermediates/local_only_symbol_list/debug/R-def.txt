@@ -1,0 +1,29 @@
+R_DEF: Internal format may change without notice
+local
+attr hlv_absHListViewStyle
+attr? hlv_childDivider
+attr? hlv_childIndicator
+attr? hlv_childIndicatorGravity
+attr? hlv_childIndicatorPaddingLeft
+attr? hlv_childIndicatorPaddingTop
+attr? hlv_dividerWidth
+attr hlv_expandableListViewStyle
+attr? hlv_footerDividersEnabled
+attr? hlv_groupIndicator
+attr? hlv_headerDividersEnabled
+attr? hlv_indicatorGravity
+attr? hlv_indicatorPaddingLeft
+attr? hlv_indicatorPaddingTop
+attr hlv_listPreferredItemWidth
+attr hlv_listViewStyle
+attr? hlv_measureWithChild
+attr? hlv_overScrollFooter
+attr? hlv_overScrollHeader
+attr? hlv_stackFromRight
+attr? hlv_transcriptMode
+id alwaysScroll
+id disabled
+id normal
+styleable AbsHListView android:listSelector android:smoothScrollbar android:drawSelectorOnTop android:cacheColorHint android:scrollingCache android:choiceMode hlv_stackFromRight hlv_transcriptMode
+styleable ExpandableHListView hlv_indicatorGravity hlv_childIndicatorGravity hlv_childDivider hlv_groupIndicator hlv_childIndicator hlv_indicatorPaddingLeft hlv_indicatorPaddingTop hlv_childIndicatorPaddingLeft hlv_childIndicatorPaddingTop
+styleable HListView android:entries android:divider hlv_dividerWidth hlv_headerDividersEnabled hlv_footerDividersEnabled hlv_overScrollHeader hlv_overScrollFooter hlv_measureWithChild

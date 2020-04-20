@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
@@ -815,6 +816,11 @@ public class DireState {
         return bmp;
     }
 
+    /**
+     * 当前高德地图的sha
+     * @param context
+     * @return
+     */
     public static String sHA1(Context context) {
         try {
             PackageInfo info = null;
@@ -859,6 +865,32 @@ public class DireState {
         for (int i = 0; i < ble.length; i++) {
             BlePosition bles = new BlePosition(ble[i], blePosition[i]);
             blePositionList.add(bles);
+        }
+    }
+
+    /**
+     * 界面设置状态栏字体颜色
+     */
+    public void changeStatusBarTextImgColor(Activity activity, boolean isBlack) {
+        if (isBlack) {
+            //设置状态栏黑色字体
+            activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        } else {
+            //恢复状态栏白色字体
+            activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }
+    }
+
+    /**
+     * 隐藏软键盘
+     *
+     * @param activity
+     */
+    public void closeKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        View v = activity.getWindow().peekDecorView();
+        if (null != v) {
+            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
         }
     }
 

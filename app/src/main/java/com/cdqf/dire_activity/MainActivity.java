@@ -92,6 +92,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tencent.map.geolocation.TencentPoi;
+import com.zhouwei.mzbanner.MZBannerView;
+import com.zhouwei.mzbanner.holder.MZHolderCreator;
+import com.zhouwei.mzbanner.holder.MZViewHolder;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -245,6 +248,10 @@ public class MainActivity extends BaseActivity {
 
     private Intent intent = null;
 
+    /****新版新增加****/
+    @BindView(R.id.mzbv_main_list)
+    public MZBannerView mzbvMainList = null;
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -252,6 +259,7 @@ public class MainActivity extends BaseActivity {
 
         //去掉标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
 
         //API19以下用于沉侵式菜单栏
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
@@ -399,7 +407,28 @@ public class MainActivity extends BaseActivity {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
+        initBanner();
+
     }
+
+    private void initBanner() {
+        List<String> urlsList = new ArrayList<String>();
+        urlsList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587363916983&di=e4016258434f9eba03eb56082860922c&imgtype=0&src=http%3A%2F%2Fimg.juimg.com%2Ftuku%2Fyulantu%2F110111%2F292-110111035J3100.jpg");
+        urlsList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587363916983&di=e4016258434f9eba03eb56082860922c&imgtype=0&src=http%3A%2F%2Fimg.juimg.com%2Ftuku%2Fyulantu%2F110111%2F292-110111035J3100.jpg");
+        urlsList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587363916983&di=e4016258434f9eba03eb56082860922c&imgtype=0&src=http%3A%2F%2Fimg.juimg.com%2Ftuku%2Fyulantu%2F110111%2F292-110111035J3100.jpg");
+        mzbvMainList.setPages(urlsList, new MZHolderCreator<BannerViewHolder>() {
+
+            @Override
+            public BannerViewHolder createViewHolder() {
+                return new BannerViewHolder();
+            }
+        });
+        mzbvMainList.setDelayedTime(3000);
+        mzbvMainList.setIndicatorVisible(false);
+        mzbvMainList.setDuration(1000);
+        mzbvMainList.start();
+    }
+
 
     /**
      * 判断悬浮窗是否授权
@@ -844,6 +873,7 @@ public class MainActivity extends BaseActivity {
     protected void onPause() {
         super.onPause();
         Log.e(TAG, "---暂停---");
+        mzbvMainList.pause();
     }
 
     @Override
@@ -857,6 +887,7 @@ public class MainActivity extends BaseActivity {
         super.onResume();
         Log.e(TAG, "---重启---");
         mMapView.onResume();
+        mzbvMainList.start();
     }
 
     @Override
@@ -870,6 +901,36 @@ public class MainActivity extends BaseActivity {
         eventBus.unregister(this);
         mMapView.onDestroy();
 
+    }
+
+    class BannerViewHolder implements MZViewHolder<String> {
+
+        //图片
+        private ImageView ivMainImage = null;
+
+        //景点名称
+        private TextView tvMainName = null;
+
+        //查看详情
+        private LinearLayout llMainDetails = null;
+
+        //播放声音
+        private RelativeLayout rlMainPlay = null;
+
+        @Override
+        public View createView(Context context) {
+            View view = LayoutInflater.from(context).inflate(R.layout.item_main_banner, null);
+            ivMainImage = view.findViewById(R.id.iv_main_image);
+            tvMainName = view.findViewById(R.id.tv_main_name);
+            llMainDetails = view.findViewById(R.id.ll_main_details);
+            rlMainPlay = view.findViewById(R.id.rl_main_play);
+            return view;
+        }
+
+        @Override
+        public void onBind(Context context, int i, String s) {
+            imageLoader.displayImage(s, ivMainImage, direState.getImageLoaderOptions(R.mipmap.not_loaded, R.mipmap.not_loaded, R.mipmap.not_loaded));
+        }
     }
 
     /**
