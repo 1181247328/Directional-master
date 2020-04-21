@@ -4,6 +4,7 @@
 
     <!--MainActivity-->
     <string name="main_ble" translatable="false">蓝牙\n检测</string>
+    <string name="main_line" translatable="false">线路\n预览</string>
     <string name="test_agr" translatable="false">1.请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意.\n2.请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意.\n3.请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意.\n4.请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意请注意.</string>
 
     <!--测试-->

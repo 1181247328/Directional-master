@@ -194,6 +194,10 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.lv_main_list)
     public ListViewForScrollView lvMainList = null;
 
+    //线路预览
+    @BindView(R.id.rl_main_layout_five)
+    public RelativeLayout rlMainLayoutFive = null;
+
     private EventBus eventBus = EventBus.getDefault();
 
     //抽屉菜单对象
@@ -765,7 +769,7 @@ public class MainActivity extends BaseActivity {
      */
     @SuppressLint("MissingPermission")
     @OnClick({R.id.rcrl_main_hear, R.id.iv_main_scanning, R.id.rl_main_layout_four, R.id.rl_main_layout_three, R.id.xet_main_input,
-            R.id.ll_main_team, R.id.ll_main_management, R.id.rcrl_main_line, R.id.rl_main_code, R.id.tv_main_user})
+            R.id.ll_main_team, R.id.ll_main_management, R.id.rcrl_main_line, R.id.rl_main_code, R.id.tv_main_user, R.id.rl_main_layout_five})
     public void onClick(View v) {
         switch (v.getId()) {
             //头像
@@ -813,6 +817,10 @@ public class MainActivity extends BaseActivity {
             //用户信息
             case R.id.tv_main_user:
                 initIntent(UserActivity.class);
+                break;
+            //线路预览
+            case R.id.rl_main_layout_five:
+                initIntent(CementActivity.class);
                 break;
         }
     }

@@ -94,4 +94,12 @@
 
     <color name="selected_back">#99ffffff</color>
 
+    <color name="details">#D97F27</color>
+
+    <color name="details_one">#07A730</color>
+
+    <color name="expericence_one">#666666</color>
+
+    <color name="expericence_two">#f5f5f5</color>
+
 </resources>

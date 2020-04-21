@@ -152,11 +152,11 @@
             android:name="com.cdqf.dire_activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="fullSensor">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
 
         <!---->
@@ -492,6 +492,44 @@
             android:name="com.cdqf.dire_activity.BleListActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--景区详情-->
+        <activity
+            android:name="com.cdqf.dire_activity.ViewDetailsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--打卡页-->
+        <activity
+            android:name="com.cdqf.dire_activity.PunchCardActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--体验活动-->
+        <activity
+            android:name="com.cdqf.dire_activity.ExpericnceActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--线上课程-->
+        <activity
+            android:name="com.cdqf.dire_activity.CourseActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <com.gcssloop.widget.RCRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shop_item"
+        app:clip_background="true"
+        app:round_corner="@dimen/dp_4">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_8">
+
+            <com.gcssloop.widget.RCRelativeLayout
+                android:id="@+id/rcrl_experience_item_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:clip_background="true"
+                app:round_corner="@dimen/dp_4">
+
+                <ImageView
+                    android:id="@+id/iv_experience_item_icon"
+                    android:layout_width="@dimen/dp_120"
+                    android:layout_height="@dimen/dp_140"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/test2" />
+
+            </com.gcssloop.widget.RCRelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_experience_item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/rcrl_experience_item_icon"
+                android:layout_toRightOf="@id/rcrl_experience_item_icon"
+                android:paddingLeft="@dimen/dp_8"
+                android:paddingTop="@dimen/dp_5"
+                android:paddingRight="@dimen/dp_8"
+                android:text="白鹭湾景区"
+                android:textColor="@color/main_one"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_experience_item_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_experience_item_title"
+                android:layout_toRightOf="@id/rcrl_experience_item_icon"
+                android:paddingLeft="@dimen/dp_8"
+                android:paddingTop="@dimen/dp_5"
+                android:paddingRight="@dimen/dp_8"
+                android:text="手动类活动   9:00-16:00"
+                android:textColor="@color/expericence_one"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:id="@+id/tv_experience_item_context"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_experience_item_type"
+                android:layout_toRightOf="@id/rcrl_experience_item_icon"
+                android:ellipsize="end"
+                android:lineSpacingExtra="@dimen/dp_4"
+                android:lines="4"
+                android:paddingLeft="@dimen/dp_8"
+                android:paddingTop="@dimen/dp_5"
+                android:paddingRight="@dimen/dp_8"
+                android:text="     白鹭印象休闲庄简称白鹭湾印象花园,印象花园位于三圣乡白鹭湾湿地公园一号门旁200米处....."
+                android:textColor="@color/expericence_one"
+                android:textSize="@dimen/sp_14" />
+
+        </RelativeLayout>
+    </com.gcssloop.widget.RCRelativeLayout>
+</LinearLayout>
