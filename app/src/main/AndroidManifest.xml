@@ -264,8 +264,9 @@
         <activity
             android:name="com.cdqf.dire_activity.CardThreeActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
 
+        </activity>
         <!--奖章-->
         <activity
             android:name="com.cdqf.dire_activity.RewardActivity"
@@ -396,7 +397,11 @@
             android:name="com.cdqf.dire_activity.AnswerActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!-- 依次穿越 -->
@@ -525,11 +530,21 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        </activity>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <!--体验类活动详情-->
+        <activity
+            android:name="com.cdqf.dire_activity.ProbeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--线上课程-文字-->
+        <activity
+            android:name="com.cdqf.dire_activity.CharacterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
 
         </activity>
 

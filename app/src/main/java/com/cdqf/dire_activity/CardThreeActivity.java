@@ -165,7 +165,7 @@ public class CardThreeActivity extends BaseActivity {
 
         initListener();
 
-        initBack();
+//        initBack();
 
     }
 

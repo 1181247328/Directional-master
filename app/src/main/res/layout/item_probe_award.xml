@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dp_8"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_4">
+
+            <com.gcssloop.widget.RCRelativeLayout
+                android:layout_width="@dimen/dp_8"
+                android:layout_height="@dimen/dp_8"
+                android:background="@android:color/transparent"
+                app:clip_background="true"
+                app:round_as_circle="true"
+                app:stroke_color="@color/context"
+                app:stroke_width="@dimen/dp_0_5" />
+
+            <TextView
+                android:id="@+id/tv_probe_item_context"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="@dimen/dp_8"
+                android:paddingRight="@dimen/dp_8"
+                android:singleLine="true"
+                android:text="电子版龙腾奖章一枚"
+                android:textColor="@color/main_one"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dp_8">
+
+            <com.gcssloop.widget.RCRelativeLayout
+                android:layout_width="@dimen/dp_8"
+                android:layout_height="@dimen/dp_8"
+                android:background="@android:color/transparent"
+                app:clip_background="true"
+                app:round_as_circle="true"
+                app:stroke_color="@android:color/transparent"
+                app:stroke_width="@dimen/dp_0_5" />
+
+            <TextView
+                android:id="@+id/tv_probe_item_brief"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical|left"
+                android:lineSpacingExtra="@dimen/dp_2"
+                android:paddingLeft="@dimen/dp_8"
+                android:paddingRight="@dimen/dp_8"
+                android:singleLine="true"
+                android:text="获得这枚奖章可前往人工服务台领取龙腾礼包"
+                android:textColor="@color/context"
+                android:textSize="@dimen/sp_12" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

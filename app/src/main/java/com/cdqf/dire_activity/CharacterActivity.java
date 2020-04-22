@@ -6,25 +6,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cdqf.dire.R;
-import com.cdqf.dire_adapter.ViewDetailsAdapter;
+import com.cdqf.dire_adapter.ProbeAwardOneAdapter;
 import com.cdqf.dire_find.MainLoginFind;
 import com.cdqf.dire_state.BaseActivity;
 import com.cdqf.dire_state.DireState;
 import com.cdqf.dire_state.StaturBar;
-import com.cdqf.dire_view.MyGridView;
+import com.cdqf.dire_view.ListViewForScrollView;
 import com.cdqf.dire_view.VerticalSwipeRefreshLayout;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zhouwei.mzbanner.MZBannerView;
 import com.zhouwei.mzbanner.holder.MZHolderCreator;
 import com.zhouwei.mzbanner.holder.MZViewHolder;
-
-import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +32,12 @@ import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
 /**
- * 景区详情
+ * 线上课程-文字
  */
-public class ViewDetailsActivity extends BaseActivity {
+public class CharacterActivity extends BaseActivity {
 
     //当前打印名称
-    private String TAG = BleListActivity.class.getSimpleName();
+    private String TAG = CharacterActivity.class.getSimpleName();
 
     //上下文
     private Context context = null;
@@ -69,38 +66,18 @@ public class ViewDetailsActivity extends BaseActivity {
 
     /*****本页组件注册********/
 
-    //返回按钮
+    //返回
     @BindView(R.id.rl_main_return)
     public RelativeLayout rlMainReturn = null;
 
     //轮播图
-    @BindView(R.id.mzbv_details_list)
-    public MZBannerView mzbvDetailsList = null;
+    @BindView(R.id.mzbv_character_list)
+    public MZBannerView mzbvCharacterList = null;
 
-    //播放声音
-    @BindView(R.id.rl_main_play)
-    public RelativeLayout rlMainPlay = null;
-    @BindView(R.id.iv_main_play)
-    public ImageView ivMainPlay = null;
-
-    //选项集合
-    @BindView(R.id.mgv_details_list)
-    public MyGridView mgvDetailsList = null;
-
-    //适配器
-    private ViewDetailsAdapter viewDetailsAdapter = null;
-
-    //时间
-    @BindView(R.id.tv_details_timer)
-    public TextView tvDetailsTimer = null;
-
-    //地址
-    @BindView(R.id.tv_details_address)
-    public TextView tvDetailsAddress = null;
-
-    //内容
-    @BindView(R.id.htv_details_content)
-    public HtmlTextView htvDetailsContent = null;
+    //活动奖励
+    @BindView(R.id.lvfsv_probe_award)
+    public ListViewForScrollView lvfsvProbeAward = null;
+    private ProbeAwardOneAdapter probeAwardOneAdapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +85,7 @@ public class ViewDetailsActivity extends BaseActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         //加载布局
-        setContentView(R.layout.activity_viewdetails);
+        setContentView(R.layout.activity_character);
 
         //沉侵式菜单栏颜色
         StaturBar.setStatusBar(this, R.color.white);
@@ -147,38 +124,27 @@ public class ViewDetailsActivity extends BaseActivity {
      * 组件初始化使用
      */
     private void initView() {
-
     }
 
     /**
      * 适配器通用
      */
     private void initAdapter() {
-        viewDetailsAdapter = new ViewDetailsAdapter(context);
-        mgvDetailsList.setAdapter(viewDetailsAdapter);
+        probeAwardOneAdapter = new ProbeAwardOneAdapter(context);
+        lvfsvProbeAward.setAdapter(probeAwardOneAdapter);
     }
 
     /**
      * 监听事件使用
      */
     private void initListener() {
-        mgvDetailsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch(position){
-                    case 0:
-                        //打卡
-                        break;
-                }
-            }
-        });
+
     }
 
     /**
      * 事件逻辑层使用
      */
     private void initBack() {
-
         initBanner();
     }
 
@@ -187,17 +153,17 @@ public class ViewDetailsActivity extends BaseActivity {
         urlsList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587363916983&di=e4016258434f9eba03eb56082860922c&imgtype=0&src=http%3A%2F%2Fimg.juimg.com%2Ftuku%2Fyulantu%2F110111%2F292-110111035J3100.jpg");
         urlsList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587363916983&di=e4016258434f9eba03eb56082860922c&imgtype=0&src=http%3A%2F%2Fimg.juimg.com%2Ftuku%2Fyulantu%2F110111%2F292-110111035J3100.jpg");
         urlsList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587363916983&di=e4016258434f9eba03eb56082860922c&imgtype=0&src=http%3A%2F%2Fimg.juimg.com%2Ftuku%2Fyulantu%2F110111%2F292-110111035J3100.jpg");
-        mzbvDetailsList.setPages(urlsList, new MZHolderCreator<BannerViewHolder>() {
+        mzbvCharacterList.setPages(urlsList, new MZHolderCreator<BannerViewHolder>() {
 
             @Override
             public BannerViewHolder createViewHolder() {
                 return new BannerViewHolder();
             }
         });
-        mzbvDetailsList.setDelayedTime(3000);
-        mzbvDetailsList.setIndicatorVisible(false);
-        mzbvDetailsList.setDuration(1000);
-        mzbvDetailsList.start();
+        mzbvCharacterList.setDelayedTime(3000);
+        mzbvCharacterList.setIndicatorVisible(false);
+        mzbvCharacterList.setDuration(1000);
+        mzbvCharacterList.start();
     }
 
     /**
@@ -205,15 +171,12 @@ public class ViewDetailsActivity extends BaseActivity {
      *
      * @param v
      */
-    @OnClick({R.id.rl_main_return, R.id.rl_main_play})
+    @OnClick({R.id.rl_main_return})
     public void onClick(View v) {
         switch (v.getId()) {
             //返回按钮
             case R.id.rl_main_return:
                 finish();
-                break;
-            //播放语音介绍
-            case R.id.rl_main_play:
                 break;
         }
     }
@@ -236,14 +199,12 @@ public class ViewDetailsActivity extends BaseActivity {
     protected void onRestart() {
         super.onRestart();
         Log.e(TAG, "---恢复---");
-        mzbvDetailsList.start();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.e(TAG, "---暂停---");
-        mzbvDetailsList.pause();
     }
 
     @Override
@@ -256,7 +217,6 @@ public class ViewDetailsActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         Log.e(TAG, "---重启---");
-
     }
 
     @Override
