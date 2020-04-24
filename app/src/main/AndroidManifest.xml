@@ -397,11 +397,7 @@
             android:name="com.cdqf.dire_activity.AnswerActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!-- 依次穿越 -->
@@ -545,6 +541,20 @@
             android:name="com.cdqf.dire_activity.CharacterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--组队-->
+        <activity
+            android:name="com.cdqf.dire_activity.GroupActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
