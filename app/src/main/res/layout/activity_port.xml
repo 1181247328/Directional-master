@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
@@ -51,7 +50,7 @@
                     android:layout_centerVertical="true"
                     android:background="@android:color/transparent"
                     android:gravity="center_vertical|center"
-                    android:text="线上课程"
+                    android:text="线上通关"
                     android:textColor="@color/main_one"
                     android:textSize="@dimen/sp_16" />
 
@@ -78,6 +77,11 @@
                 </RelativeLayout>
 
             </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/selected_back" />
 
             <RelativeLayout
                 android:id="@+id/rl_orders_bar"
@@ -107,97 +111,32 @@
                 android:textSize="@dimen/sp_14"
                 android:visibility="gone" />
 
-            <android.support.v4.widget.NestedScrollView
+            <LinearLayout
+                android:id="@+id/ll_ble_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/selected_back"
-                android:scrollbars="none">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/ll_ble_list"
+                <!--主体区-->
+                <com.jingchen.pulltorefresh.PullToRefreshLayout
+                    android:id="@+id/ptrl_experience_pull"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/selected_back"
-                    android:orientation="vertical">
+                    android:background="@color/expericence_two">
 
-                    <!--主体区-->
-                    <RelativeLayout
+                    <com.jingchen.pulltorefresh.PullableListView
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp_180"
-                        android:background="@android:color/transparent"
-                        android:paddingTop="@dimen/dp_5">
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_5"
+                        android:background="@color/expericence_two"
+                        android:divider="@color/expericence_two"
+                        android:dividerHeight="@dimen/dp_5"
+                        android:scrollbars="none" />
 
-                        <com.zhouwei.mzbanner.MZBannerView
-                            android:id="@+id/mzbv_character_list"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/dp_180"
-                            android:background="@android:color/transparent"
-                            app:canLoop="true"
-                            app:indicatorAlign="center"
-                            app:indicatorPaddingLeft="@dimen/dp_10"
-                            app:middle_page_cover="false"
-                            app:open_mz_mode="true" />
+                </com.jingchen.pulltorefresh.PullToRefreshLayout>
 
-                        <ImageView
-                            android:scaleType="fitCenter"
-                            android:layout_width="match_parent"
-                            android:src="@mipmap/test2"
-                            android:visibility="gone"
-                            android:background="@android:color/transparent"
-                            android:layout_height="@dimen/dp_180"/>
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:id="@+id/tv_probe_context"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:lineSpacingExtra="@dimen/dp_4"
-                        android:paddingLeft="@dimen/dp_8"
-                        android:paddingTop="@dimen/dp_8"
-                        android:paddingRight="@dimen/dp_8"
-                        android:paddingBottom="@dimen/dp_8"
-                        android:text="    白鹭印象休闲庄简称白鹭湾印象花园，印象花园位于三圣乡白鹭湾湿地公园一号门旁200米处，占地约200亩。紧邻白鹭湾湿地公园和江家艺苑两大湿地公园 白鹭湾印象花园是一家集中餐包席、公司会议、拓展住宿、美食、休闲娱乐为一...."
-                        android:textColor="@color/main_one"
-                        android:textSize="@dimen/sp_16" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_8"
-                        android:paddingLeft="@dimen/dp_8"
-                        android:paddingTop="@dimen/dp_8"
-                        android:paddingRight="@dimen/dp_8"
-                        android:paddingBottom="@dimen/dp_8"
-                        android:text="课程奖励"
-                        android:textColor="@color/main_two"
-                        android:textSize="@dimen/sp_16"
-                        android:textStyle="bold" />
-
-                    <com.gcssloop.widget.RCRelativeLayout
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dp_8"
-                        android:layout_marginRight="@dimen/dp_8"
-                        android:background="@color/white"
-                        app:clip_background="true"
-                        app:round_corner="@dimen/dp_4"
-                        app:stroke_color="@color/selected_all"
-                        app:stroke_width="@dimen/dp_1">
-
-                        <com.cdqf.dire_view.ListViewForScrollView
-                            android:id="@+id/lvfsv_probe_award"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:divider="@null"
-                            android:paddingBottom="@dimen/dp_8" />
-
-                    </com.gcssloop.widget.RCRelativeLayout>
-
-                </LinearLayout>
-            </android.support.v4.widget.NestedScrollView>
+            </LinearLayout>
         </LinearLayout>
     </com.cdqf.dire_view.VerticalSwipeRefreshLayout>
 

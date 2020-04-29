@@ -194,9 +194,9 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.lv_main_list)
     public ListViewForScrollView lvMainList = null;
 
-    //线路预览
-    @BindView(R.id.rl_main_layout_five)
-    public RelativeLayout rlMainLayoutFive = null;
+//    //线路预览
+//    @BindView(R.id.rl_main_layout_five)
+//    public RelativeLayout rlMainLayoutFive = null;
 
     private EventBus eventBus = EventBus.getDefault();
 
@@ -255,6 +255,10 @@ public class MainActivity extends BaseActivity {
     /****新版新增加****/
     @BindView(R.id.mzbv_main_list)
     public MZBannerView mzbvMainList = null;
+
+    //线路预览
+    @BindView(R.id.rcrl_main_layout_five)
+    public RCRelativeLayout rcrlMainLayoutFive = null;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -769,7 +773,7 @@ public class MainActivity extends BaseActivity {
      */
     @SuppressLint("MissingPermission")
     @OnClick({R.id.rcrl_main_hear, R.id.iv_main_scanning, R.id.rl_main_layout_four, R.id.rl_main_layout_three, R.id.xet_main_input,
-            R.id.ll_main_team, R.id.ll_main_management, R.id.rcrl_main_line, R.id.rl_main_code, R.id.tv_main_user, R.id.rl_main_layout_five})
+            R.id.ll_main_team, R.id.ll_main_management, R.id.rcrl_main_line, R.id.rl_main_code, R.id.tv_main_user, R.id.rcrl_main_layout_five})
     public void onClick(View v) {
         switch (v.getId()) {
             //头像
@@ -793,7 +797,8 @@ public class MainActivity extends BaseActivity {
                 break;
             //点标检测
             case R.id.rl_main_layout_four:
-                isEnabled();
+                initIntent(BleListActivity.class);
+//                isEnabled();
                 break;
             //定位
             case R.id.rl_main_layout_three:
@@ -809,7 +814,7 @@ public class MainActivity extends BaseActivity {
                 break;
             //线路
             case R.id.rcrl_main_line:
-                initIntent(CementActivity.class);
+//                initIntent(CementActivity.class);
                 break;
             //二维码
             case R.id.rl_main_code:
@@ -819,7 +824,7 @@ public class MainActivity extends BaseActivity {
                 initIntent(UserActivity.class);
                 break;
             //线路预览
-            case R.id.rl_main_layout_five:
+            case R.id.rcrl_main_layout_five:
                 initIntent(CementActivity.class);
                 break;
         }
@@ -932,12 +937,23 @@ public class MainActivity extends BaseActivity {
             tvMainName = view.findViewById(R.id.tv_main_name);
             llMainDetails = view.findViewById(R.id.ll_main_details);
             rlMainPlay = view.findViewById(R.id.rl_main_play);
+            llMainDetails.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    initIntent(ViewDetailsActivity.class);
+                }
+            });
             return view;
         }
 
         @Override
         public void onBind(Context context, int i, String s) {
             imageLoader.displayImage(s, ivMainImage, direState.getImageLoaderOptions(R.mipmap.not_loaded, R.mipmap.not_loaded, R.mipmap.not_loaded));
+        }
+
+        private void initIntent(Class<?> activity) {
+            Intent intent = new Intent(context, activity);
+            startActivity(intent);
         }
     }
 

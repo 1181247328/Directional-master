@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cdqf.dire.R;
-import com.cdqf.dire_adapter.CourseAdapter;
+import com.cdqf.dire_adapter.ProtAdapter;
 import com.cdqf.dire_find.MainLoginFind;
 import com.cdqf.dire_state.BaseActivity;
 import com.cdqf.dire_state.DireState;
@@ -28,12 +28,12 @@ import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
 /**
- * 线上课程
+ * 线上通关
  */
-public class CourseActivity extends BaseActivity {
+public class PortActivity extends BaseActivity {
 
     //当前打印名称
-    private String TAG = CourseActivity.class.getSimpleName();
+    private String TAG = PortActivity.class.getSimpleName();
 
     //上下文
     private Context context = null;
@@ -71,7 +71,7 @@ public class CourseActivity extends BaseActivity {
 
     private ListView lvExperiencePull = null;
 
-    private CourseAdapter courseAdapter = null;
+    private ProtAdapter protAdapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +79,7 @@ public class CourseActivity extends BaseActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         //加载布局
-        setContentView(R.layout.activity_course);
+        setContentView(R.layout.activity_port);
 
         //沉侵式菜单栏颜色
         StaturBar.setStatusBar(this, R.color.white);
@@ -125,8 +125,8 @@ public class CourseActivity extends BaseActivity {
      * 适配器通用
      */
     private void initAdapter() {
-        courseAdapter = new CourseAdapter(context);
-        lvExperiencePull.setAdapter(courseAdapter);
+        protAdapter = new ProtAdapter(context);
+        lvExperiencePull.setAdapter(protAdapter);
     }
 
     /**
@@ -171,7 +171,7 @@ public class CourseActivity extends BaseActivity {
         lvExperiencePull.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                initIntent(CharacterActivity.class);
+                initIntent(PortDatilsActivity.class);
             }
         });
     }
@@ -258,3 +258,4 @@ public class CourseActivity extends BaseActivity {
 
     }
 }
+

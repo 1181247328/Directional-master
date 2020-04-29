@@ -152,11 +152,11 @@
             android:name="com.cdqf.dire_activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="fullSensor">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!---->
@@ -544,17 +544,35 @@
 
         </activity>
 
+        <!--线上通关-->
+        <activity
+            android:name="com.cdqf.dire_activity.PortActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--线上通关详情-->
+        <activity
+            android:name="com.cdqf.dire_activity.PortDatilsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
         <!--组队-->
         <activity
             android:name="com.cdqf.dire_activity.GroupActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        </activity>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <!--景区地图-->
+        <activity
+            android:name="com.cdqf.dire_activity.FontActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
 
         </activity>
 

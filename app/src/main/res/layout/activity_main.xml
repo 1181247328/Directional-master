@@ -294,7 +294,7 @@
         </com.gcssloop.widget.RCRelativeLayout>
 
         <com.gcssloop.widget.RCRelativeLayout
-            android:id="@+id/rl_main_layout_five"
+            android:id="@+id/rcrl_main_layout_five"
             android:layout_width="@dimen/dp_30"
             android:layout_height="@dimen/dp_60"
             android:layout_above="@id/rl_main_layout_four"

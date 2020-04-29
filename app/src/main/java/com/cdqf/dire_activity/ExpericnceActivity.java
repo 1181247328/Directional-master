@@ -1,11 +1,13 @@
 package com.cdqf.dire_activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -165,6 +167,13 @@ public class ExpericnceActivity extends BaseActivity {
                 }
             }
         });
+
+        lvExperiencePull.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                initIntent(ProbeActivity.class);
+            }
+        });
     }
 
     /**
@@ -172,6 +181,11 @@ public class ExpericnceActivity extends BaseActivity {
      */
     private void initBack() {
         ptrlExperiencePull.setPullDownEnable(false);
+    }
+
+    private void initIntent(Class<?> activity) {
+        Intent intent = new Intent(context, activity);
+        startActivity(intent);
     }
 
     /**
